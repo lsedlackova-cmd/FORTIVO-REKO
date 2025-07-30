@@ -1,0 +1,329 @@
+/* Základní styl pro celý web */
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eee;
+  scroll-behavior: smooth;
+}
+
+.section {
+  padding: 100px 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+.scroll-arrow {
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  text-decoration: none;
+  margin-top: 20px;
+  color: #333;
+}
+
+/* HLAVIČKA */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+}
+
+.logo-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  margin-left: 25px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: #444;
+  display: none;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  z-index: 999;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #555;
+}
+
+/* Vyhledávání */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  position: relative;
+}
+
+.search-input,
+.search-btn {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.search-wrapper.active .search-input,
+.search-wrapper.active .search-btn {
+  display: inline-block;
+  opacity: 1;
+}
+
+.search-input {
+  padding: 4px 10px;
+  font-size: 14px;
+  border-radius: 20px;
+  border: none;
+  margin-left: 10px;
+  width: 150px;
+}
+
+.search-btn {
+  margin-left: 5px;
+  padding: 4px 10px;
+  border: none;
+  background-color: #fff;
+  color: #333;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Video background */
+.background-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 50px;
+}
+
+/* O NÁS */
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-image img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Kontakt */
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 250px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #9df8f9;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+.contact-form button {
+  background-color: #a2dcf5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Karusel referencí */
+.reference-carousel {
+  display: flex;
+  gap: 20px;
+  animation: slideRefs 40s linear infinite;
+  overflow: hidden;
+  width: 100%;
+}
+
+.reference-box {
+  flex: 0 0 300px;
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid #9df8f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.stars {
+  margin-top: 8px;
+  color: #9df8f9;
+}
+
+/* Karusel log partnerů */
+.logos-carousel {
+  display: flex;
+  gap: 80px;
+  margin-top: 30px;
+  animation: slideLogos 30s linear infinite;
+  align-items: center;
+  overflow: hidden;
+}
+
+.logo-icon {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Animace pro karusely */
+@keyframes slideRefs {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slideLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #ccc;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  padding: 30px 20px 10px;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto 20px;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 1 1 0;
+  min-width: 120px;
+  max-width: 200px;
+}
+
+.footer-column a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 13px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: left;
+  font-size: 12px;
+  color: #777;
+}
+
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+

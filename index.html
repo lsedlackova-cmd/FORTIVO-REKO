@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FORTIVO REKO – historické fasády, interiéry, exteriéry, rekonstrukce. Kvalita, Detail.">
+  <title>Historické fasády, rekonstrukce, interiéry, exteriéry | FORTIVO REKO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    main, section {
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-nav">
+    <a href="#home"><img src="img/FORTIVO REKO logo.png" alt="Logo FORTIVO REKO" class="logo"></a>
+    <nav>
+      <a href="#home">Domů</a>
+      <a href="#about">O nás</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">Naše služby</a>
+        <div class="dropdown-menu">
+          <a href="#fasady">Historické fasády</a>
+          <a href="#interiery">Interiéry</a>
+          <a href="#exteriery">Exteriéry</a>
+        </div>
+      </div>
+      <a href="#reference">Reference</a>
+      <a href="#kontakt">Kontakt</a>
+      <div class="search-wrapper">
+        <a href="#" class="search-icon">🔍</a>
+        <input type="text" id="searchInput" class="search-input" placeholder="Hledat...">
+        <button onclick="searchWeb()" class="search-btn">➤</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section id="home" class="section">
+  <video autoplay muted loop class="background-video">
+    <source src="video/INTRO FORTEKO REKO.mp4" type="video/mp4">
+    Váš prohlížeč nepodporuje video tag.
+  </video>
+  <a href="#about" class="scroll-arrow">↓</a>
+</section>
+
+<section id="about" class="section about-section">
+  <h2>O NÁS</h2>
+  <div class="about-content">
+    <div class="about-text">
+      <p>Lorem ipsum dolor sit amet...</p>
+      <p>Fusce rutrum tellus eget...</p>
+      <p>Aliquam erat volutpat...</p>
+      <p>Proin vel urna vitae elit...</p>
+      <p>Nam eget velit in sem...</p>
+      <p>Sed nec turpis ac justo...</p>
+    </div>
+    <div class="about-image">
+      <img src="img/onas-foto.png" alt="Tým Fortivo Reko">
+    </div>
+  </div>
+  <a href="#fasady" class="scroll-arrow">↓</a>
+</section>
+
+<section id="fasady" class="section">
+  <h2>Historické fasády</h2>
+  <div class="carousel">[Karusel s fotkami]</div>
+  <a href="#interiery" class="scroll-arrow">↓</a>
+</section>
+
+<section id="interiery" class="section">
+  <h2>Interiéry</h2>
+  <div class="carousel">[Karusel s fotkami]</div>
+  <a href="#exteriery" class="scroll-arrow">↓</a>
+</section>
+
+<section id="exteriery" class="section">
+  <h2>Exteriéry</h2>
+  <div class="carousel">[Karusel s fotkami]</div>
+  <a href="#reference" class="scroll-arrow">↓</a>
+</section>
+
+<!-- SEKCE REFERENCE -->
+<section id="reference" class="section">
+  <h2>Reference</h2>
+  <div class="reference-carousel">
+    <div class="reference-box" style="border: 2px solid #999;">
+      <p>Skvělá práce, velmi profesionální přístup!</p>
+      <p><strong>J.N.</strong></p>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="reference-box" style="border: 2px solid #999;">
+      <p>Rekonstrukce proběhla podle plánu. Doporučuji.</p>
+      <p><strong>M.K.</strong></p>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="reference-box" style="border: 2px solid #999;">
+      <p>Precizní detailní práce na fasádě. Děkujeme.</p>
+      <p><strong>R.P.</strong></p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="reference-box" style="border: 2px solid #999;">
+      <p>Interiéry podle našich představ. Super komunikace.</p>
+      <p><strong>L.S.</strong></p>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="reference-box" style="border: 2px solid #999;">
+      <p>Firma reagovala rychle a ochotně. Doporučujeme!</p>
+      <p><strong>K.T.</strong></p>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="reference-box" style="border: 2px solid #999;">
+      <p>Naše nejlepší zkušenost s rekonstrukcí vůbec.</p>
+      <p><strong>A.V.</strong></p>
+      <div class="stars">★★★★★</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 60px; text-transform: uppercase; text-align: left;">Spolupracovali s námi</h3>
+  <div class="logos-carousel">
+    <img src="img/logo1.png" alt="Logo 1" class="logo-icon">
+    <img src="img/logo2.png" alt="Logo 2" class="logo-icon">
+    <img src="img/logo3.png" alt="Logo 3" class="logo-icon">
+    <img src="img/logo4.png" alt="Logo 4" class="logo-icon">
+    <img src="img/logo5.png" alt="Logo 5" class="logo-icon">
+    <img src="img/logo6.png" alt="Logo 6" class="logo-icon">
+  </div>
+</section>
+
+  <h3 style="margin-top: 60px; text-transform: uppercase; text-align: left;">Spolupracovali s námi</h3>
+  <div class="logos-carousel">
+    <img src="img/logo1.png" alt="Logo 1" class="logo-icon">
+    <img src="img/logo2.png" alt="Logo 2" class="logo-icon">
+    <img src="img/logo3.png" alt="Logo 3" class="logo-icon">
+    <img src="img/logo4.png" alt="Logo 4" class="logo-icon">
+    <img src="img/logo5.png" alt="Logo 5" class="logo-icon">
+    <img src="img/logo6.png" alt="Logo 6" class="logo-icon">
+  </div>
+</section>
+
+<section id="kontakt" class="section">
+  <h2>Kontakt</h2>
+  <div class="contact-content">
+    <div class="contact-info">
+      <p>FORTIVO REKO s.r.o.</p>
+      <p>Adresa ulice 123</p>
+      <p>123 45 Město</p>
+      <p>IČO: 12345678</p>
+      <p>Telefon: +420 123 456 789</p>
+      <p>Email: info@fortivoreko.cz</p>
+    </div>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Jméno">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="Zpráva"></textarea>
+        <button type="submit">Odeslat</button>
+      </form>
+    </div>
+  </div>
+  <a href="#reference" class="scroll-arrow">↑</a>
+</section>
+
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-content">
+      <div class="footer-column">
+        <a href="#">Obchodní podmínky</a><br>
+        <a href="#">Ochrana osobních údajů</a><br>
+        <a href="#">Cookies</a>
+      </div>
+      <div class="footer-column">
+        <a href="#home">Domů</a><br>
+        <a href="#about">O nás</a><br>
+        <a href="#fasady">Naše služby</a><br>
+        <a href="#reference">Reference</a><br>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+      <div class="footer-column">
+        <a href="#">Facebook</a><br>
+        <a href="#">Instagram</a><br>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2025 FORTIVO REKO s.r.o. Všechna práva vyhrazena.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
