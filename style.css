@@ -20,8 +20,12 @@ h2 {
   letter-spacing: 0.5px;
   font-size: 24px;
   text-align: left;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   margin-top: 50px;
+}
+
+.about-section h2 {
+  margin-bottom: 10px;
 }
 
 .scroll-arrow {
@@ -29,8 +33,8 @@ h2 {
   text-align: center;
   font-size: 30px;
   text-decoration: none;
-  margin-top: 20px;
   color: #333;
+  margin-top: 30px;
 }
 
 /* HLAVIČKA */
@@ -155,43 +159,64 @@ nav a:hover {
   display: block;
   margin-top: 50px;
 }
+
 /* O NÁS */
 .about-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 20px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 0;
 }
+
 .about-text {
   flex: 1;
   min-width: 280px;
+  margin-top: 10px; /* snížení mezery pod nadpisem */
+  text-align: justify; /* ← zarovnání do bloku */
 }
+
 .about-image img {
   max-width: 400px;
   width: 100%;
   height: auto;
   border-radius: 8px;
 }
+
 .about-image-with-stats {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
+  margin-top: 32px;
 }
+
 .stats {
   display: flex;
   justify-content: center;
   gap: 60px;
-  margin-top: 100px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  width: 100%;
 }
+
 .stat-box {
   text-align: center;
+  flex: 1 1 200px;
 }
+
 .stat-number {
   font-size: 28px;
   font-weight: bold;
-  color: #a2dcf5;;
+  color: #a2dcf5;
 }
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
 /* Kontakt */
 .contact-content {
   display: flex;
@@ -209,18 +234,20 @@ nav a:hover {
 .contact-form {
   flex: 1;
   min-width: 250px;
-  margin-top: 250px;
+  margin-top: 100px;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 10px;
+  max-width: 500px; /* širší vstupní pole */
+  padding: 12px;
   margin-bottom: 15px;
   border: 1px solid #9df8f9;
   border-radius: 5px;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 .contact-form button {
@@ -235,7 +262,7 @@ nav a:hover {
 /* REFERENCE */
 .reference-carousel-wrapper {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 40px auto 0;
   overflow: hidden;
   padding-bottom: 40px;
 }
@@ -249,19 +276,18 @@ nav a:hover {
 
 .reference-box {
   flex: 0 0 300px;
-  width: 250px;
-  height: 250px; /* nově přidáno – výška = šířka */
+  width: 300px;
+  height: 300px;
   padding: 20px;
-  box-sizing: border-box; /* aby padding byl započítán do výšky */
+  box-sizing: border-box;
   background-color: #fff;
   border: 2px solid #9df8f9;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   font-size: 14px;
   line-height: 1.5;
-  overflow: hidden; /* pokud text přesahuje */
+  overflow: hidden;
 }
-
 
 /* Loga carousel */
 .logos-carousel-wrapper {
@@ -302,6 +328,7 @@ nav a:hover {
     transform: translateX(-50%);
   }
 }
+
 /* Výchozí styl pro všechny šipky */
 .scroll-arrow {
   display: block;
@@ -309,7 +336,7 @@ nav a:hover {
   font-size: 30px;
   text-decoration: none;
   color: #333;
-  margin-top: 30px; /* výchozí mezera */
+  margin-top: 30px;
 }
 
 /* Individuální nastavení výšky podle sekcí */
@@ -318,23 +345,23 @@ nav a:hover {
 }
 
 .arrow-about {
-  margin-top: 100px;
+  margin-top: 120px;
 }
 
 .arrow-fasady {
-  margin-top: 450px;
+  margin-top: 540px;
 }
 
 .arrow-interiery {
-  margin-top: 450px;
+  margin-top: 540px;
 }
 
 .arrow-exteriery {
-  margin-top: 450px;
+  margin-top: 540px;
 }
 
 .arrow-reference {
-  margin-top: 200px;
+  margin-top: 70px;
 }
 
 .arrow-kontakt {
@@ -390,6 +417,9 @@ footer {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+
+
 
 
 

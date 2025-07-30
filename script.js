@@ -26,9 +26,42 @@ document.addEventListener("DOMContentLoaded", function () {
   if (logosCarousel) {
     logosCarousel.innerHTML += logosCarousel.innerHTML;
   }
+
+  // 🔢 Animační čítače (čísla pod fotkou)
+  const counters = document.querySelectorAll(".count");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const target = +counter.getAttribute("data-target");
+        let current = 0;
+        const increment = target / 100;
+
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            counter.textContent = Math.ceil(current);
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target;
+          }
+        };
+
+        updateCounter();
+        observer.unobserve(counter);
+      }
+    });
+  }, {
+    threshold: 0.6
+  });
+
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
 });
 
-// Jednoduché hledání textu na stránce
+// 🔎 Funkce pro vyhledávání textu
 function searchWeb() {
   const term = document.getElementById("searchInput").value.toLowerCase();
   if (!term) return;
@@ -39,6 +72,7 @@ function searchWeb() {
     alert(`Výraz "${term}" nebyl nalezen.`);
   }
 }
+
 document.addEventListener("DOMContentLoaded", function () {
   const counters = document.querySelectorAll(".stat-number");
 
