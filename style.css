@@ -349,15 +349,15 @@ nav a:hover {
 }
 
 .arrow-fasady {
-  margin-top: 540px;
+  margin-top: 40px;
 }
 
 .arrow-interiery {
-  margin-top: 540px;
+  margin-top: 40px;
 }
 
 .arrow-exteriery {
-  margin-top: 540px;
+  margin-top: 40px;
 }
 
 .arrow-reference {
@@ -417,6 +417,47 @@ footer {
   margin: 0 auto;
   padding: 0 20px;
 }
+.photo-carousel-wrapper {
+  max-width: 1000px;
+  margin: 40px auto 0;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+.photo-carousel {
+  display: flex;
+  gap: 20px;
+  animation: slidePhotos 60s linear infinite;
+  width: fit-content;
+}
+
+.photo-box {
+  flex: 0 0 300px;
+  width: 400px;
+  height: 460px;
+  background-color: #fff;
+  border: 2px solid #9df8f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Animace */
+@keyframes slidePhotos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 
 
 
