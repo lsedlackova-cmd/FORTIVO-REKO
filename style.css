@@ -234,14 +234,19 @@ nav a:hover {
 
 .reference-box {
   flex: 0 0 300px;
+  width: 250px;
+  height: 250px; /* nově přidáno – výška = šířka */
   padding: 20px;
+  box-sizing: border-box; /* aby padding byl započítán do výšky */
   background-color: #fff;
   border: 2px solid #9df8f9;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   font-size: 14px;
   line-height: 1.5;
+  overflow: hidden; /* pokud text přesahuje */
 }
+
 
 /* Loga carousel */
 .logos-carousel-wrapper {
