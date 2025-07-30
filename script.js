@@ -1,5 +1,5 @@
-// Počkej, až se stránka načte
 document.addEventListener("DOMContentLoaded", function () {
+  // 🔍 Vyhledávání
   const searchIcon = document.querySelector(".search-icon");
   const searchWrapper = document.querySelector(".search-wrapper");
   const searchInput = document.querySelector(".search-input");
@@ -9,11 +9,22 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       searchWrapper.classList.toggle("active");
 
-      // Zaostři do pole po zobrazení
       if (searchWrapper.classList.contains("active") && searchInput) {
         setTimeout(() => searchInput.focus(), 200);
       }
     });
+  }
+
+  // ♻️ Duplikuj reference pro plynulý karusel
+  const refCarousel = document.querySelector(".reference-carousel");
+  if (refCarousel) {
+    refCarousel.innerHTML += refCarousel.innerHTML;
+  }
+
+  // ♻️ Duplikuj loga pro plynulý karusel
+  const logosCarousel = document.querySelector(".logos-carousel");
+  if (logosCarousel) {
+    logosCarousel.innerHTML += logosCarousel.innerHTML;
   }
 });
 
@@ -28,6 +39,7 @@ function searchWeb() {
     alert(`Výraz "${term}" nebyl nalezen.`);
   }
 }
+
 
 
 

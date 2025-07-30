@@ -7,18 +7,6 @@
   <title>Historické fasády, rekonstrukce, interiéry, exteriéry | FORTIVO REKO</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <style>
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-    main, section {
-      margin-top: 100px;
-    }
-  </style>
 </head>
 <body>
 
@@ -29,7 +17,7 @@
       <a href="#home">Domů</a>
       <a href="#about">O nás</a>
       <div class="dropdown">
-        <a href="#" class="dropdown-toggle">Naše služby</a>
+        <a href="#fasady" class="dropdown-toggle">Naše služby</a>
         <div class="dropdown-menu">
           <a href="#fasady">Historické fasády</a>
           <a href="#interiery">Interiéry</a>
@@ -52,11 +40,11 @@
     <source src="video/INTRO FORTEKO REKO.mp4" type="video/mp4">
     Váš prohlížeč nepodporuje video tag.
   </video>
-  <a href="#about" class="scroll-arrow">↓</a>
+  <a href="#about" class="scroll-arrow arrow-home">↓</a>
 </section>
 
-<section id="about" class="section about-section">
-  <h2>O NÁS</h2>
+<section id="about" class="section">
+  <h2>O nás</h2>
   <div class="about-content">
     <div class="about-text">
       <p>Lorem ipsum dolor sit amet...</p>
@@ -70,83 +58,63 @@
       <img src="img/onas-foto.png" alt="Tým Fortivo Reko">
     </div>
   </div>
-  <a href="#fasady" class="scroll-arrow">↓</a>
+  <a href="#fasady" class="scroll-arrow arrow-about">↓</a>
 </section>
 
 <section id="fasady" class="section">
   <h2>Historické fasády</h2>
   <div class="carousel">[Karusel s fotkami]</div>
-  <a href="#interiery" class="scroll-arrow">↓</a>
+  <a href="#interiery" class="scroll-arrow arrow-fasady">↓</a>
 </section>
 
 <section id="interiery" class="section">
   <h2>Interiéry</h2>
   <div class="carousel">[Karusel s fotkami]</div>
-  <a href="#exteriery" class="scroll-arrow">↓</a>
+  <a href="#exteriery" class="scroll-arrow arrow-interiery">↓</a>
 </section>
 
 <section id="exteriery" class="section">
   <h2>Exteriéry</h2>
   <div class="carousel">[Karusel s fotkami]</div>
-  <a href="#reference" class="scroll-arrow">↓</a>
+  <a href="#reference" class="scroll-arrow arrow-exteriery">↓</a>
 </section>
 
-<!-- SEKCE REFERENCE -->
 <section id="reference" class="section">
   <h2>Reference</h2>
-  <div class="reference-carousel">
-    <div class="reference-box" style="border: 2px solid #999;">
-      <p>Skvělá práce, velmi profesionální přístup!</p>
-      <p><strong>J.N.</strong></p>
-      <div class="stars">★★★★★</div>
-    </div>
-    <div class="reference-box" style="border: 2px solid #999;">
-      <p>Rekonstrukce proběhla podle plánu. Doporučuji.</p>
-      <p><strong>M.K.</strong></p>
-      <div class="stars">★★★★★</div>
-    </div>
-    <div class="reference-box" style="border: 2px solid #999;">
-      <p>Precizní detailní práce na fasádě. Děkujeme.</p>
-      <p><strong>R.P.</strong></p>
-      <div class="stars">★★★★☆</div>
-    </div>
-    <div class="reference-box" style="border: 2px solid #999;">
-      <p>Interiéry podle našich představ. Super komunikace.</p>
-      <p><strong>L.S.</strong></p>
-      <div class="stars">★★★★★</div>
-    </div>
-    <div class="reference-box" style="border: 2px solid #999;">
-      <p>Firma reagovala rychle a ochotně. Doporučujeme!</p>
-      <p><strong>K.T.</strong></p>
-      <div class="stars">★★★★☆</div>
-    </div>
-    <div class="reference-box" style="border: 2px solid #999;">
-      <p>Naše nejlepší zkušenost s rekonstrukcí vůbec.</p>
-      <p><strong>A.V.</strong></p>
-      <div class="stars">★★★★★</div>
+  <div class="reference-carousel-wrapper">
+    <div class="reference-carousel">
+      <!-- Reference boxy -->
+      <div class="reference-box"><p>Skvělá práce!</p><p><strong>J.N.</strong></p><div class="stars">★★★★★</div></div>
+      <div class="reference-box"><p>Doporučuji.</p><p><strong>M.K.</strong></p><div class="stars">★★★★★</div></div>
+      <div class="reference-box"><p>Detailní práce.</p><p><strong>R.P.</strong></p><div class="stars">★★★★☆</div></div>
+      <div class="reference-box"><p>Skvělá komunikace.</p><p><strong>L.S.</strong></p><div class="stars">★★★★★</div></div>
+      <div class="reference-box"><p>Rychlé řešení.</p><p><strong>K.T.</strong></p><div class="stars">★★★★☆</div></div>
+      <div class="reference-box"><p>Top kvalita!</p><p><strong>A.V.</strong></p><div class="stars">★★★★★</div></div>
+      <!-- Duplikace pro scroll -->
+      <div class="reference-box"><p>Skvělá práce!</p><p><strong>J.N.</strong></p><div class="stars">★★★★★</div></div>
+      <div class="reference-box"><p>Doporučuji.</p><p><strong>M.K.</strong></p><div class="stars">★★★★★</div></div>
     </div>
   </div>
 
-  <h3 style="margin-top: 60px; text-transform: uppercase; text-align: left;">Spolupracovali s námi</h3>
-  <div class="logos-carousel">
-    <img src="img/logo1.png" alt="Logo 1" class="logo-icon">
-    <img src="img/logo2.png" alt="Logo 2" class="logo-icon">
-    <img src="img/logo3.png" alt="Logo 3" class="logo-icon">
-    <img src="img/logo4.png" alt="Logo 4" class="logo-icon">
-    <img src="img/logo5.png" alt="Logo 5" class="logo-icon">
-    <img src="img/logo6.png" alt="Logo 6" class="logo-icon">
+  <div class="logos-carousel-wrapper">
+    <div class="logos-carousel">
+      <img src="img/logo1.png" alt="Logo 1" class="logo-icon">
+      <img src="img/logo2.png" alt="Logo 2" class="logo-icon">
+      <img src="img/logo3.png" alt="Logo 3" class="logo-icon">
+      <img src="img/logo4.png" alt="Logo 4" class="logo-icon">
+      <img src="img/logo5.png" alt="Logo 5" class="logo-icon">
+      <img src="img/logo6.png" alt="Logo 6" class="logo-icon">
+      <!-- Duplikace -->
+      <img src="img/logo1.png" alt="Logo 1" class="logo-icon">
+      <img src="img/logo2.png" alt="Logo 2" class="logo-icon">
+      <img src="img/logo3.png" alt="Logo 3" class="logo-icon">
+      <img src="img/logo4.png" alt="Logo 4" class="logo-icon">
+      <img src="img/logo5.png" alt="Logo 5" class="logo-icon">
+      <img src="img/logo6.png" alt="Logo 6" class="logo-icon">
+    </div>
   </div>
-</section>
 
-  <h3 style="margin-top: 60px; text-transform: uppercase; text-align: left;">Spolupracovali s námi</h3>
-  <div class="logos-carousel">
-    <img src="img/logo1.png" alt="Logo 1" class="logo-icon">
-    <img src="img/logo2.png" alt="Logo 2" class="logo-icon">
-    <img src="img/logo3.png" alt="Logo 3" class="logo-icon">
-    <img src="img/logo4.png" alt="Logo 4" class="logo-icon">
-    <img src="img/logo5.png" alt="Logo 5" class="logo-icon">
-    <img src="img/logo6.png" alt="Logo 6" class="logo-icon">
-  </div>
+  <a href="#kontakt" class="scroll-arrow arrow-reference">↓</a>
 </section>
 
 <section id="kontakt" class="section">
@@ -169,7 +137,7 @@
       </form>
     </div>
   </div>
-  <a href="#reference" class="scroll-arrow">↑</a>
+  <a href="#reference" class="scroll-arrow arrow-kontakt">↑</a>
 </section>
 
 <footer id="footer">
@@ -200,6 +168,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 

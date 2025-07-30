@@ -148,7 +148,7 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* Video background */
+/* Video */
 .background-video {
   width: 100%;
   height: auto;
@@ -194,6 +194,7 @@ nav a:hover {
 .contact-form {
   flex: 1;
   min-width: 250px;
+  margin-top: 250px;
 }
 
 .contact-form input,
@@ -216,13 +217,19 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* Karusel referencí */
+/* REFERENCE */
+.reference-carousel-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
 .reference-carousel {
   display: flex;
   gap: 20px;
   animation: slideRefs 40s linear infinite;
-  overflow: hidden;
-  width: 100%;
+  width: fit-content;
 }
 
 .reference-box {
@@ -236,19 +243,19 @@ nav a:hover {
   line-height: 1.5;
 }
 
-.stars {
-  margin-top: 8px;
-  color: #9df8f9;
+/* Loga carousel */
+.logos-carousel-wrapper {
+  max-width: 1000px;
+  margin: 60px auto 0;
+  overflow: hidden;
 }
 
-/* Karusel log partnerů */
 .logos-carousel {
   display: flex;
   gap: 80px;
-  margin-top: 30px;
   animation: slideLogos 30s linear infinite;
   align-items: center;
-  overflow: hidden;
+  width: fit-content;
 }
 
 .logo-icon {
@@ -257,7 +264,7 @@ nav a:hover {
   object-fit: contain;
 }
 
-/* Animace pro karusely */
+/* Animace */
 @keyframes slideRefs {
   0% {
     transform: translateX(0);
@@ -274,6 +281,44 @@ nav a:hover {
   100% {
     transform: translateX(-50%);
   }
+}
+/* Výchozí styl pro všechny šipky */
+.scroll-arrow {
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  text-decoration: none;
+  color: #333;
+  margin-top: 30px; /* výchozí mezera */
+}
+
+/* Individuální nastavení výšky podle sekcí */
+.arrow-home {
+  margin-top: 30px;
+}
+
+.arrow-about {
+  margin-top: 230px;
+}
+
+.arrow-fasady {
+  margin-top: 450px;
+}
+
+.arrow-interiery {
+  margin-top: 450px;
+}
+
+.arrow-exteriery {
+  margin-top: 450px;
+}
+
+.arrow-reference {
+  margin-top: 200px;
+}
+
+.arrow-kontakt {
+  margin-top: 50px;
 }
 
 /* Footer */
@@ -325,5 +370,6 @@ footer {
   margin: 0 auto;
   padding: 0 20px;
 }
+
 
 
