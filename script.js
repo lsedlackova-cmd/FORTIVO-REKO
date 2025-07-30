@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
     logosCarousel.innerHTML += logosCarousel.innerHTML;
   }
 
-  // 🔢 Animační čítače (čísla pod fotkou)
-  const counters = document.querySelectorAll(".count");
+  // 🔢 Počítadla (statistiky pod fotkou)
+  const counters = document.querySelectorAll(".count, .stat-number");
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -60,52 +60,27 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(counter);
   });
 });
+
+// 🔍 Odstranění diakritiky pro spolehlivé hledání
+function removeDiacritics(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
 
 // 🔎 Funkce pro vyhledávání textu
 function searchWeb() {
-  const term = document.getElementById("searchInput").value.toLowerCase();
-  if (!term) return;
+  const input = document.getElementById("searchInput");
+  if (!input) return;
 
-  if (document.body.innerText.toLowerCase().includes(term)) {
-    alert(`Výraz "${term}" byl nalezen na stránce.`);
+  const term = removeDiacritics(input.value.toLowerCase());
+  const pageText = removeDiacritics(document.body.innerText.toLowerCase());
+
+  if (term && pageText.includes(term)) {
+    alert(`Výraz "${input.value}" byl nalezen na stránce.`);
   } else {
-    alert(`Výraz "${term}" nebyl nalezen.`);
+    alert(`Výraz "${input.value}" nebyl nalezen.`);
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const counters = document.querySelectorAll(".stat-number");
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const counter = entry.target;
-        const target = +counter.getAttribute("data-target");
-        let current = 0;
-        const increment = target / 100;
-
-        const updateCounter = () => {
-          current += increment;
-          if (current < target) {
-            counter.textContent = Math.ceil(current);
-            requestAnimationFrame(updateCounter);
-          } else {
-            counter.textContent = target;
-          }
-        };
-
-        updateCounter();
-        observer.unobserve(counter);
-      }
-    });
-  }, {
-    threshold: 0.6
-  });
-
-  counters.forEach(counter => {
-    observer.observe(counter);
-  });
-});
 
 
 
