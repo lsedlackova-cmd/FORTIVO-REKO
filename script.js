@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // 🔍 Vyhledávání
+  // 🔍 Lupa
   const searchIcon = document.querySelector(".search-icon");
   const searchWrapper = document.querySelector(".search-wrapper");
   const searchInput = document.querySelector(".search-input");
@@ -13,21 +13,24 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => searchInput.focus(), 200);
       }
     });
+
+    // 🔎 Enter pro spuštění vyhledávání
+    searchInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        searchWeb();
+      }
+    });
   }
 
-  // ♻️ Duplikuj reference pro plynulý karusel
+  // ♻️ Karusely
   const refCarousel = document.querySelector(".reference-carousel");
-  if (refCarousel) {
-    refCarousel.innerHTML += refCarousel.innerHTML;
-  }
+  if (refCarousel) refCarousel.innerHTML += refCarousel.innerHTML;
 
-  // ♻️ Duplikuj loga pro plynulý karusel
   const logosCarousel = document.querySelector(".logos-carousel");
-  if (logosCarousel) {
-    logosCarousel.innerHTML += logosCarousel.innerHTML;
-  }
+  if (logosCarousel) logosCarousel.innerHTML += logosCarousel.innerHTML;
 
-  // 🔢 Počítadla (statistiky pod fotkou)
+  // 🔢 Počítadla (čísla)
   const counters = document.querySelectorAll(".count, .stat-number");
 
   const observer = new IntersectionObserver(entries => {
@@ -52,34 +55,71 @@ document.addEventListener("DOMContentLoaded", function () {
         observer.unobserve(counter);
       }
     });
-  }, {
-    threshold: 0.6
-  });
+  }, { threshold: 0.6 });
 
-  counters.forEach(counter => {
-    observer.observe(counter);
+  counters.forEach(counter => observer.observe(counter));
+
+  // 📂 Dropdown menu (klikání místo hover)
+  const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener("click", function (e) {
+      e.preventDefault();
+      const menu = this.nextElementSibling;
+      if (menu) {
+        const isVisible = menu.style.display === "block";
+        menu.style.display = isVisible ? "none" : "block";
+      }
+    });
   });
 });
 
-// 🔍 Odstranění diakritiky pro spolehlivé hledání
+// 🧹 Odstranění diakritiky
 function removeDiacritics(str) {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
-// 🔎 Funkce pro vyhledávání textu
+// 🔎 Vyhledávací funkce
 function searchWeb() {
   const input = document.getElementById("searchInput");
   if (!input) return;
 
-  const term = removeDiacritics(input.value.toLowerCase());
-  const pageText = removeDiacritics(document.body.innerText.toLowerCase());
+  const term = removeDiacritics(input.value.trim().toLowerCase());
+  if (!term) return;
 
-  if (term && pageText.includes(term)) {
-    alert(`Výraz "${input.value}" byl nalezen na stránce.`);
-  } else {
-    alert(`Výraz "${input.value}" nebyl nalezen.`);
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+
+    if (
+      node.parentNode.tagName === "SCRIPT" ||
+      node.parentNode.tagName === "STYLE" ||
+      node.parentNode.tagName === "NOSCRIPT"
+    ) {
+      continue;
+    }
+
+    const text = removeDiacritics(node.textContent.toLowerCase());
+
+    if (text.includes(term)) {
+      let element = node.parentNode;
+      while (element && !element.id && element !== document.body) {
+        element = element.parentNode;
+      }
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+    }
   }
+
+  alert(`Výraz "${input.value}" nebyl nalezen.`);
 }
+
+
+
 
 
 
