@@ -509,7 +509,7 @@ footer {
     font-size: 16px; /* volitelné zmenšení hvězdiček na mobilech */
   }
 }
-/* 🌐 Responzivita pro velmi malá zařízení */
+/* 🌐 Responzivita  */
 @media (max-width: 480px) {
   .section {
     padding: 60px 10px;
@@ -530,6 +530,94 @@ footer {
     max-width: 100%;
   }
 }
+@media (max-width: 767px) {
+  header {
+    padding: 10px 15px;
+  }
+
+  .logo-nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    height: 45px;
+    max-width: 100px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav a {
+    font-size: 14px;
+    margin-left: 0;
+  }
+
+  .search-wrapper {
+    margin-left: auto;
+    margin-top: 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .section {
+    padding: 60px 15px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-image img {
+    max-width: 90%;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    max-width: 100%;
+  }
+
+  .reference-box,
+  .photo-box {
+    width: 90vw;
+    height: auto;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-column {
+    align-items: center;
+    width: 100%;
+  }
+
+  .scroll-arrow {
+    margin-top: 40px;
+  }
+}
+
+
 
 
 
