@@ -72,6 +72,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  // 📱 Mobilní menu toggle (☰)
+  const toggleButton = document.querySelector(".menu-toggle");
+  const mobileMenu = document.querySelector(".mobile-menu");
+
+  if (toggleButton && mobileMenu) {
+    toggleButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
+  }
 });
 
 // 🧹 Odstranění diakritiky
@@ -117,6 +127,7 @@ function searchWeb() {
 
   alert(`Výraz "${input.value}" nebyl nalezen.`);
 }
+
 
 
 

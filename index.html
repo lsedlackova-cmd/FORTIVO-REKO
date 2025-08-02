@@ -12,8 +12,15 @@
 
 <header>
   <div class="logo-nav">
-    <a href="#home"><img src="img/FORTIVO REKO logo.png" alt="Logo FORTIVO REKO" class="logo"></a>
-    <nav>
+    <a href="#home">
+      <img src="img/FORTIVO REKO logo.png" alt="Logo FORTIVO REKO" class="logo">
+    </a>
+
+    <!-- Mobilní přepínač -->
+    <button class="menu-toggle" aria-label="Otevřít menu">☰</button>
+
+    <!-- Navigace pro desktop -->
+    <nav class="desktop-nav">
       <a href="#home">Domů</a>
       <a href="#about">O nás</a>
       <div class="dropdown">
@@ -29,9 +36,20 @@
       <div class="search-wrapper">
         <a href="#" class="search-icon">🔍</a>
         <input type="text" id="searchInput" class="search-input" placeholder="Hledat...">
-<button onclick="searchWeb()" class="search-btn">➤</button>
+        <button onclick="searchWeb()" class="search-btn">➤</button>
       </div>
     </nav>
+
+    <!-- Mobilní menu -->
+    <div class="mobile-menu">
+      <a href="#home">Domů</a>
+      <a href="#about">O nás</a>
+      <a href="#fasady">Historické fasády</a>
+      <a href="#interiery">Interiéry</a>
+      <a href="#exteriery">Exteriéry</a>
+      <a href="#reference">Reference</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
   </div>
 </header>
 

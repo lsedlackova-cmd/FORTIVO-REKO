@@ -461,31 +461,52 @@ footer {
   }
 
   .logo-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  gap: 10px;
-}
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
 
   .logo {
     height: 45px;
     max-width: 100px;
   }
 
-  nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: nowrap;
-  gap: 15px;
-  flex: 1;
-  margin-top: 0;
-}
+  .menu-toggle {
+    display: block;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
 
-  nav a {
-    font-size: 15px;
-    margin-left: 0;
+  nav {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .mobile-menu.open {
+    display: flex;
+  }
+
+  .mobile-menu a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  .mobile-menu a:hover {
+    background-color: #444;
   }
 
   .search-wrapper {
@@ -559,6 +580,7 @@ footer {
   }
 }
 
+/* 📱 Responzivita pro zařízení do 480px (telefony) */
 @media (max-width: 480px) {
   header {
     padding: 6px 10px;
@@ -569,31 +591,52 @@ footer {
   }
 
   .logo-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  gap: 10px;
-}
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
 
   .logo {
     height: 40px;
     max-width: 90px;
   }
 
-  nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: nowrap;
-  gap: 10px;
-  flex: 1;
-  margin-top: 0;
-}
+  .menu-toggle {
+    display: block;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
 
-  nav a {
-    font-size: 14px;
-    margin-left: 0;
+  nav {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .mobile-menu.open {
+    display: flex;
+  }
+
+  .mobile-menu a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 15px;
+  }
+
+  .mobile-menu a:hover {
+    background-color: #444;
   }
 
   .search-wrapper {
@@ -613,7 +656,7 @@ footer {
   }
 
   h2 {
-    font-size: 12px;
+    font-size: 18px;
     text-align: center;
   }
 
@@ -660,4 +703,5 @@ footer {
     font-size: 14px;
   }
 }
+
 
