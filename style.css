@@ -454,93 +454,19 @@ footer {
   }
 }
 
-/* 📱 Responzivita pro menší obrazovky */
+/* 📱 Responzivita pro zařízení do 768px */
 @media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .footer-column {
-    max-width: 100%;
-  }
-  .photo-box {
-    width: 300px;
-    height: 360px;
-  }
-}
-@media (max-width: 480px) {
-  .photo-box {
-    width: 250px;
-    height: 300px;
-  }
-}
-
-/* Hvězdičky */
-.stars {
-  color: #9df8f9;
-  font-size: 20px;
-}
-
-/* 📱 Responzivita */
-@media (max-width: 768px) {
-  .scroll-arrow {
-    font-size: 24px;
-    margin-top: 40px;
-  }
-  .logo-nav {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  nav a {
-    margin-left: 0;
-    font-size: 16px;
-  }
-  .logo {
-    height: 50px;
-  }
-  .stars {
-    font-size: 16px; /* volitelné zmenšení hvězdiček na mobilech */
-  }
-}
-/* 🌐 Responzivita  */
-@media (max-width: 480px) {
-  .section {
-    padding: 60px 10px;
-  }
-  h2 {
-    font-size: 20px;
-  }
-  .search-input {
-    width: 120px;
-  }
-  .photo-box,
-  .reference-box {
-    width: 280px;
-    height: 280px;
-  }
-  .contact-form input,
-  .contact-form textarea {
-    max-width: 100%;
-  }
-}
-@media (max-width: 767px) {
   header {
-    padding: 10px 15px;
+    padding: 6px 10px;
   }
 
   .logo-nav {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
 
   .logo {
     height: 45px;
@@ -548,22 +474,29 @@ footer {
   }
 
   nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 10px;
-    width: 100%;
-    margin-top: 10px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  gap: 15px;
+  flex: 1;
+  margin-top: 0;
+}
 
   nav a {
-    font-size: 14px;
+    font-size: 15px;
     margin-left: 0;
   }
 
   .search-wrapper {
     margin-left: auto;
     margin-top: 10px;
+    width: auto;
+  }
+
+  .scroll-arrow {
+    font-size: 24px;
+    margin-top: 30px;
   }
 
   h2 {
@@ -573,6 +506,10 @@ footer {
 
   .section {
     padding: 60px 15px;
+  }
+
+  .background-video {
+    margin-top: 80px;
   }
 
   .about-content {
@@ -586,8 +523,14 @@ footer {
   }
 
   .stats {
-    flex-direction: column;
-    gap: 30px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .stat-box {
+    max-width: 120px;
+    flex: 1 1 100px;
   }
 
   .contact-form input,
@@ -608,22 +551,113 @@ footer {
   }
 
   .footer-column {
+    width: 100%;
+  }
+
+  .stars {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 6px 10px;
+  }
+
+  footer {
+    padding: 20px 10px 5px;
+  }
+
+  .logo-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+  .logo {
+    height: 40px;
+    max-width: 90px;
+  }
+
+  nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  gap: 10px;
+  flex: 1;
+  margin-top: 0;
+}
+
+  nav a {
+    font-size: 14px;
+    margin-left: 0;
+  }
+
+  .search-wrapper {
+    width: 100%;
+    justify-content: flex-end;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .search-input {
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .section {
+    padding: 50px 10px;
+  }
+
+  h2 {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .about-content {
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+  }
+
+  .stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .reference-box,
+  .photo-box {
+    width: 90vw;
+    height: auto;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-column {
     width: 100%;
   }
 
   .scroll-arrow {
-    margin-top: 40px;
+    font-size: 22px;
+    margin-top: 30px;
+  }
+
+  .stars {
+    font-size: 14px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    max-width: 100%;
+    font-size: 14px;
   }
 }
-
-
-
-
-
-
-
-
-
-
 
