@@ -1,4 +1,13 @@
-const sections = ["header"];
+// Seznam sekcí
+const sections = [
+  "header",
+  "domu",
+  "o-nas",
+  "nase-sluzby",
+  "reference",
+  "kontakty",
+  "footer"
+];
 
 sections.forEach(section => {
   fetch(`html/${section}.html`)
@@ -7,7 +16,12 @@ sections.forEach(section => {
       return res.text();
     })
     .then(html => {
-      document.getElementById(section).innerHTML = html;
+      const container = document.getElementById(section);
+      if (container) {
+        container.innerHTML = html;
+      } else {
+        console.warn(`Element s ID '${section}' nebyl nalezen v index.html`);
+      }
     })
     .catch(err => {
       console.error(`Chyba při načítání sekce '${section}':`, err);

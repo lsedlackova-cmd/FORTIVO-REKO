@@ -1,14 +1,61 @@
-<link rel="stylesheet" href="../css/header.css" />
+<!-- header.html -->
+<link rel="stylesheet" href="../css/header.css">
 <script src="../js/header.js" defer></script>
 
 <header class="site-header">
   <div class="container">
-    <div class="logo">LOGO</div>
-    <nav>
+    <!-- Logo -->
+    <a href="#domu" class="logo">
+      <img src="../img/logo.png" alt="Fortivo Reko logo">
+    </a>
+
+    <!-- Desktop navigace -->
+    <nav class="main-nav desktop-only">
       <ul>
         <li><a href="#domu">Domů</a></li>
-        <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#o-nas">O nás</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Naše služby</a>
+          <ul class="submenu">
+            <li><a href="#historicke-fasady">Historické fasády</a></li>
+            <li><a href="#interiery">Interiéry</a></li>
+            <li><a href="#exteriery">Exteriéry</a></li>
+          </ul>
+        </li>
+        <li><a href="#reference">Reference</a></li>
+        <li><a href="#kontakty">Kontakt</a></li>
       </ul>
     </nav>
+
+    <!-- Vyhledávání + hamburger -->
+    <div class="controls">
+      <div class="search-wrapper">
+        <i class="fas fa-search search-icon" id="searchIcon"></i>
+        <form id="searchForm" class="hidden">
+          <input type="text" id="searchInput" placeholder="Hledat..." />
+        </form>
+      </div>
+      <button class="menu-toggle mobile-only" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
   </div>
+
+  <!-- Mobilní menu -->
+  <nav class="mobile-nav mobile-only hidden" id="mobileMenu">
+    <ul>
+      <li><a href="#domu">Domů</a></li>
+      <li><a href="#o-nas">O nás</a></li>
+      <li class="mobile-dropdown">
+        <a href="#" class="mobile-dropdown-toggle">Naše služby</a>
+        <ul class="submenu horizontal-scroll">
+          <li><a href="#historicke-fasady">Historické fasády</a></li>
+          <li><a href="#interiery">Interiéry</a></li>
+          <li><a href="#exteriery">Exteriéry</a></li>
+        </ul>
+      </li>
+      <li><a href="#reference">Reference</a></li>
+      <li><a href="#kontakty">Kontakt</a></li>
+    </ul>
+  </nav>
 </header>
