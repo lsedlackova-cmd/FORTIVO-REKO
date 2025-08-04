@@ -1,44 +1,69 @@
+/* header.css */
 .site-header {
-  background-color: #2e2e2e;
-  color: #f2f2f2;
+  background-color: #605f5f;
+  color: #d0d0d0;
   padding: 15px 20px;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  z-index: 100;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 20px;
 }
 
 .logo img {
   height: 50px;
+  cursor: pointer;
 }
 
+/* Navigace */
 .main-nav ul,
 .mobile-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
-  gap: 15px;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
 }
 
-.main-nav ul li a,
-.mobile-nav ul li a {
-  color: #f2f2f2;
+.main-nav a,
+.mobile-nav a {
   text-decoration: none;
   text-transform: uppercase;
+  color: #e8e8e8;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.3s ease;
   font-family: 'Montserrat', sans-serif;
-  transition: color 0.3s;
 }
 
-.main-nav ul li a:hover,
-.mobile-nav ul li a:hover {
-  color: #0077cc;
+.main-nav a:hover,
+.mobile-nav a:hover {
+  color: #02a9be;
+}
+
+/* Dropdown menu */
+.dropdown,
+.mobile-dropdown {
+  position: relative;
 }
 
 .dropdown .submenu,
 .mobile-dropdown .submenu {
   display: none;
   flex-direction: column;
-  background: #444;
+  background-color: #2e2e2e;
   position: absolute;
-  margin-top: 10px;
+  top: 100%;
+  left: 0;
   padding: 10px;
+  z-index: 10;
 }
 
 .dropdown.open .submenu,
@@ -46,34 +71,43 @@
   display: flex;
 }
 
+/* Vyhledávání a hamburger */
 .controls {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
+.search-wrapper {
+  position: relative;
+}
+
 .search-wrapper input {
-  padding: 6px 12px;
+  padding: 6px 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
   font-family: 'Montserrat', sans-serif;
 }
 
 .search-wrapper .search-icon {
-  color: #f2f2f2;
   cursor: pointer;
+  color: #f2f2f2;
+  font-size: 18px;
 }
 
+/* Hamburger */
 .menu-toggle {
   font-size: 24px;
   background: none;
   border: none;
   color: #f2f2f2;
+  cursor: pointer;
 }
 
+/* Mobilní navigace */
 .mobile-nav {
   flex-direction: column;
-  background: #2e2e2e;
+  background-color: #2e2e2e;
   padding: 10px;
 }
 
@@ -94,12 +128,65 @@
   display: none !important;
 }
 
+/* RESPONSIVITA */
+@media (max-width: 1024px) {
+  .main-nav a,
+  .mobile-nav a {
+    font-size: 14px;
+  }
+
+  .search-wrapper input {
+    max-width: 140px;
+  }
+}
+
 @media (max-width: 768px) {
   .desktop-only {
     display: none;
   }
+
   .mobile-only {
     display: flex;
+    align-items: center;
+  }
+
+  .nav-list {
+    flex-direction: column;
+  }
+
+  .mobile-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .submenu.horizontal-scroll {
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .search-wrapper input {
+    max-width: 120px;
   }
 }
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 40px;
+  }
+
+  .search-wrapper input {
+    width: 100px;
+  }
+
+  .controls {
+    gap: 8px;
+  }
+
+  .main-nav a,
+  .mobile-nav a {
+    font-size: 13px;
+  }
+}
+
 

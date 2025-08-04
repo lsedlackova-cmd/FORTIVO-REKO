@@ -1,17 +1,17 @@
 <!-- header.html -->
-<link rel="stylesheet" href="../css/header.css">
-<script src="../js/header.js" defer></script>
+<link rel="stylesheet" href="css/header.css">
+<script src="js/header.js" defer></script>
 
 <header class="site-header">
   <div class="container">
     <!-- Logo -->
     <a href="#domu" class="logo">
-      <img src="../img/logo.png" alt="Fortivo Reko logo">
+      <img src="img/FORTIVO REKO logo.png" alt="Fortivo Reko logo">
     </a>
 
-    <!-- Desktop navigace -->
+    <!-- Navigace pro desktop -->
     <nav class="main-nav desktop-only">
-      <ul>
+      <ul class="nav-list">
         <li><a href="#domu">Domů</a></li>
         <li><a href="#o-nas">O nás</a></li>
         <li class="dropdown">
@@ -27,7 +27,7 @@
       </ul>
     </nav>
 
-    <!-- Vyhledávání + hamburger -->
+    <!-- Ovládací prvky -->
     <div class="controls">
       <div class="search-wrapper">
         <i class="fas fa-search search-icon" id="searchIcon"></i>
@@ -35,15 +35,16 @@
           <input type="text" id="searchInput" placeholder="Hledat..." />
         </form>
       </div>
-      <button class="menu-toggle mobile-only" id="menuToggle">
+
+      <button class="menu-toggle mobile-only" id="menuToggle" aria-label="Otevřít menu">
         <i class="fas fa-bars"></i>
       </button>
     </div>
   </div>
 
-  <!-- Mobilní menu -->
+  <!-- Navigace pro mobily -->
   <nav class="mobile-nav mobile-only hidden" id="mobileMenu">
-    <ul>
+    <ul class="nav-list">
       <li><a href="#domu">Domů</a></li>
       <li><a href="#o-nas">O nás</a></li>
       <li class="mobile-dropdown">

@@ -1,4 +1,4 @@
-// Seznam sekcí
+// Seznam HTML sekcí, které se načtou do index.html
 const sections = [
   "header",
   "domu",
@@ -27,3 +27,4 @@ sections.forEach(section => {
       console.error(`Chyba při načítání sekce '${section}':`, err);
     });
 });
+
