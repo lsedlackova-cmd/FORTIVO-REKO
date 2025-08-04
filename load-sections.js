@@ -1,9 +1,8 @@
-// Seznam HTML sekcí, které se načtou do index.html
+// Seznam sekcí, které se načítají do index.html
 const sections = [
   "header",
   "domu",
   "o-nas",
-  "nase-sluzby",
   "reference",
   "kontakty",
   "footer"
@@ -19,6 +18,14 @@ sections.forEach(section => {
       const container = document.getElementById(section);
       if (container) {
         container.innerHTML = html;
+
+        // Pokud načítáme header, znovu připojíme JS pro funkčnost
+        if (section === "header") {
+          const headerScript = document.createElement("script");
+          headerScript.src = "js/header.js";
+          headerScript.defer = true;
+          document.body.appendChild(headerScript);
+        }
       } else {
         console.warn(`Element s ID '${section}' nebyl nalezen v index.html`);
       }
@@ -27,4 +34,6 @@ sections.forEach(section => {
       console.error(`Chyba při načítání sekce '${section}':`, err);
     });
 });
+
+
 

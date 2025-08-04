@@ -1,11 +1,11 @@
-// Hamburger menu toggle
+// Hamburger menu toggle (mobil)
 document.getElementById('menuToggle')?.addEventListener('click', () => {
   document.getElementById('mobileMenu')?.classList.toggle('hidden');
 });
 
 // Dropdown toggle – desktop
-const dropdown = document.querySelector('.dropdown');
 const dropdownToggle = document.querySelector('.dropdown-toggle');
+const dropdown = document.querySelector('.dropdown');
 
 if (dropdown && dropdownToggle) {
   dropdownToggle.addEventListener('click', (e) => {
@@ -14,9 +14,9 @@ if (dropdown && dropdownToggle) {
   });
 }
 
-// Dropdown toggle – mobile
-const mobileDropdown = document.querySelector('.mobile-dropdown');
+// Dropdown toggle – mobil
 const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+const mobileDropdown = document.querySelector('.mobile-dropdown');
 
 if (mobileDropdown && mobileDropdownToggle) {
   mobileDropdownToggle.addEventListener('click', (e) => {
@@ -25,17 +25,21 @@ if (mobileDropdown && mobileDropdownToggle) {
   });
 }
 
-// Vyhledávání – zobrazit input
+// Zobrazit/skrýt vyhledávací pole
 const searchIcon = document.getElementById('searchIcon');
 const searchForm = document.getElementById('searchForm');
 const searchInput = document.getElementById('searchInput');
 
 searchIcon?.addEventListener('click', () => {
-  searchForm?.classList.toggle('hidden');
-  searchInput?.focus();
+  if (searchForm) {
+    searchForm.classList.toggle('hidden');
+    if (!searchForm.classList.contains('hidden')) {
+      searchInput?.focus();
+    }
+  }
 });
 
-// Vyhledávání – skrolování na odpovídající sekci
+// Vyhledávání – scroll na sekci
 searchForm?.addEventListener('submit', (e) => {
   e.preventDefault();
   const query = searchInput?.value.trim().toLowerCase();
@@ -49,7 +53,7 @@ searchForm?.addEventListener('submit', (e) => {
   }
 });
 
-// Kliknutí na logo = skok na sekci Domů
+// Klik na logo – scroll na sekci #domu
 document.querySelector('.logo')?.addEventListener('click', (e) => {
   e.preventDefault();
   document.getElementById('domu')?.scrollIntoView({ behavior: 'smooth' });

@@ -1,11 +1,11 @@
-/* header.css */
+/* Základní styl */
 .site-header {
   background-color: #605f5f;
   color: #d0d0d0;
   padding: 15px 20px;
   font-family: 'Montserrat', sans-serif;
   position: relative;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .container {
@@ -40,7 +40,6 @@
   font-weight: 500;
   font-size: 15px;
   transition: color 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .main-nav a:hover,
@@ -48,14 +47,13 @@
   color: #02a9be;
 }
 
-/* Dropdown menu */
+/* Dropdown */
 .dropdown,
 .mobile-dropdown {
   position: relative;
 }
 
-.dropdown .submenu,
-.mobile-dropdown .submenu {
+.dropdown .submenu {
   display: none;
   flex-direction: column;
   background-color: #2e2e2e;
@@ -66,12 +64,23 @@
   z-index: 10;
 }
 
-.dropdown.open .submenu,
+.dropdown.open .submenu {
+  display: flex;
+}
+
+.mobile-dropdown .submenu {
+  display: none;
+  flex-direction: row;
+  background-color: #2e2e2e;
+  padding: 10px;
+  gap: 10px;
+}
+
 .mobile-dropdown.open .submenu {
   display: flex;
 }
 
-/* Vyhledávání a hamburger */
+/* Vyhledávání + hamburger */
 .controls {
   display: flex;
   align-items: center;
@@ -87,6 +96,10 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   font-family: 'Montserrat', sans-serif;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 .search-wrapper .search-icon {
@@ -106,9 +119,19 @@
 
 /* Mobilní navigace */
 .mobile-nav {
+  display: none;
   flex-direction: column;
   background-color: #2e2e2e;
   padding: 10px;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+}
+
+.mobile-nav.show {
+  display: flex;
 }
 
 .horizontal-scroll {
@@ -188,5 +211,4 @@
     font-size: 13px;
   }
 }
-
 
