@@ -3,34 +3,54 @@ document.getElementById('menuToggle')?.addEventListener('click', () => {
   document.getElementById('mobileMenu')?.classList.toggle('hidden');
 });
 
-// Dropdown toggle – desktop
-const dropdownToggle = document.querySelector('.dropdown-toggle');
+// Desktop dropdown
 const dropdown = document.querySelector('.dropdown');
+const dropdownToggle = document.querySelector('.dropdown-toggle');
 
-if (dropdown && dropdownToggle) {
-  dropdownToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    dropdown.classList.toggle('open');
-  });
-}
-
-// Dropdown toggle – mobil
-const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+// Mobile dropdown
 const mobileDropdown = document.querySelector('.mobile-dropdown');
+const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
 
-if (mobileDropdown && mobileDropdownToggle) {
-  mobileDropdownToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    mobileDropdown.classList.toggle('open');
-  });
-}
-
-// Zobrazit/skrýt vyhledávací pole
+// Vyhledávání
 const searchIcon = document.getElementById('searchIcon');
 const searchForm = document.getElementById('searchForm');
 const searchInput = document.getElementById('searchInput');
 
-searchIcon?.addEventListener('click', () => {
+// Klik na logo
+const logoLink = document.querySelector('.logo');
+
+// === EVENTY ===
+
+// Dropdown toggle – desktop
+dropdownToggle?.addEventListener('click', (e) => {
+  e.preventDefault();
+  dropdown?.classList.toggle('open');
+});
+
+// Dropdown toggle – mobil
+mobileDropdownToggle?.addEventListener('click', (e) => {
+  e.preventDefault();
+  mobileDropdown?.classList.toggle('open');
+});
+
+// Zavření submenu a vyhledávání při kliknutí mimo
+document.addEventListener('click', (e) => {
+  if (!dropdown?.contains(e.target) && !dropdownToggle?.contains(e.target)) {
+    dropdown?.classList.remove('open');
+  }
+
+  if (!mobileDropdown?.contains(e.target) && !mobileDropdownToggle?.contains(e.target)) {
+    mobileDropdown?.classList.remove('open');
+  }
+
+  if (!searchForm?.contains(e.target) && !searchIcon?.contains(e.target)) {
+    searchForm?.classList.add('hidden');
+  }
+});
+
+// Otevření/skrytí pole pro vyhledávání
+searchIcon?.addEventListener('click', (e) => {
+  e.stopPropagation();
   if (searchForm) {
     searchForm.classList.toggle('hidden');
     if (!searchForm.classList.contains('hidden')) {
@@ -39,7 +59,7 @@ searchIcon?.addEventListener('click', () => {
   }
 });
 
-// Vyhledávání – scroll na sekci
+// Vyhledávání – přechod na sekci
 searchForm?.addEventListener('submit', (e) => {
   e.preventDefault();
   const query = searchInput?.value.trim().toLowerCase();
@@ -53,8 +73,9 @@ searchForm?.addEventListener('submit', (e) => {
   }
 });
 
-// Klik na logo – scroll na sekci #domu
-document.querySelector('.logo')?.addEventListener('click', (e) => {
+// Klik na logo – návrat na #domu
+logoLink?.addEventListener('click', (e) => {
   e.preventDefault();
   document.getElementById('domu')?.scrollIntoView({ behavior: 'smooth' });
 });
+

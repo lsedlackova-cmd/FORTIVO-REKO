@@ -11,7 +11,9 @@ const sections = [
 sections.forEach(section => {
   fetch(`html/${section}.html`)
     .then(res => {
-      if (!res.ok) throw new Error(`Soubor ${section}.html nenalezen`);
+      if (!res.ok) {
+        throw new Error(`Soubor ${section}.html nenalezen`);
+      }
       return res.text();
     })
     .then(html => {
@@ -19,7 +21,7 @@ sections.forEach(section => {
       if (container) {
         container.innerHTML = html;
 
-        // Pokud načítáme header, znovu připojíme JS pro funkčnost
+        // Pokud je to header, připoj JS pro funkčnost menu a vyhledávání
         if (section === "header") {
           const headerScript = document.createElement("script");
           headerScript.src = "js/header.js";
@@ -31,9 +33,10 @@ sections.forEach(section => {
       }
     })
     .catch(err => {
-      console.error(`Chyba při načítání sekce '${section}':`, err);
+      console.error(`Chyba při načítání sekce '${section}':`, err.message);
     });
 });
+
 
 
 
