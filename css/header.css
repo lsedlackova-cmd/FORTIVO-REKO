@@ -1,5 +1,5 @@
 .site-header {
-  background-color: #605f5f;
+  background-color: #444;
   color: #d0d0d0;
   padding: 15px 20px;
   font-family: 'Montserrat', sans-serif;
@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 8px;
   flex-wrap: nowrap;
 }
 
@@ -23,7 +23,7 @@
 /* Navigace */
 .main-nav ul {
   display: flex;
-  gap: 50px;
+  gap: 40px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -63,10 +63,11 @@
 .dropdown .submenu {
   display: none;
   flex-direction: column;
-  background-color: #605f5f;
+  background-color: #444;
   position: absolute;
   top: 100%;
   left: 0;
+  margin-top: 32px;
   padding: 10px 0;
   z-index: 10;
   border-radius: 5px;
@@ -75,6 +76,7 @@
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.3s ease;
+  gap: 2 !important;
 }
 
 .dropdown.open .submenu {
@@ -84,19 +86,28 @@
 }
 
 .dropdown .submenu li {
-  padding: 2px 8px !important;
+  padding: 1px 15px !important;
+  margin: 0 !important;
+  line-height: 0.8 !important;
+  height: auto !important;
 }
 
 .dropdown .submenu li a {
   color: #fff;
   font-size: 14px;
-   line-height: 1.2;
-  padding: 0 !important;
-  margin: 0 !important;
-}
 
+}
 .dropdown .submenu li a:hover {
   color: #02a9be;
+}
+
+.dropdown.open .submenu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  border: 5px solid transparent;
+  border-bottom-color: #444;
 }
 
 /* Mobile Dropdown */
@@ -248,5 +259,3 @@
     font-size: 13px;
   }
 }
-
-

@@ -1,54 +1,57 @@
-// Hamburger menu toggle (mobil)
-document.getElementById('menuToggle')?.addEventListener('click', () => {
-  document.getElementById('mobileMenu')?.classList.toggle('hidden');
-});
+// === ELEMENTY ===
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
 
-// Desktop dropdown
 const dropdown = document.querySelector('.dropdown');
 const dropdownToggle = document.querySelector('.dropdown-toggle');
 
-// Mobile dropdown
 const mobileDropdown = document.querySelector('.mobile-dropdown');
 const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
 
-// Vyhledávání
 const searchIcon = document.getElementById('searchIcon');
 const searchForm = document.getElementById('searchForm');
 const searchInput = document.getElementById('searchInput');
 
-// Klik na logo
 const logoLink = document.querySelector('.logo');
 
-// === EVENTY ===
+// === FUNKCE ===
 
-// Dropdown toggle – desktop
+// Přepínání hamburger menu (mobil)
+menuToggle?.addEventListener('click', () => {
+  mobileMenu?.classList.toggle('hidden');
+});
+
+// Přepínání dropdown menu (desktop)
 dropdownToggle?.addEventListener('click', (e) => {
   e.preventDefault();
   dropdown?.classList.toggle('open');
 });
 
-// Dropdown toggle – mobil
+// Přepínání dropdown menu (mobil)
 mobileDropdownToggle?.addEventListener('click', (e) => {
   e.preventDefault();
   mobileDropdown?.classList.toggle('open');
 });
 
-// Zavření submenu a vyhledávání při kliknutí mimo
+// Skrytí dropdownů a hledání při kliknutí mimo
 document.addEventListener('click', (e) => {
+  // Dropdown desktop
   if (!dropdown?.contains(e.target) && !dropdownToggle?.contains(e.target)) {
     dropdown?.classList.remove('open');
   }
 
+  // Dropdown mobil
   if (!mobileDropdown?.contains(e.target) && !mobileDropdownToggle?.contains(e.target)) {
     mobileDropdown?.classList.remove('open');
   }
 
+  // Vyhledávání
   if (!searchForm?.contains(e.target) && !searchIcon?.contains(e.target)) {
     searchForm?.classList.add('hidden');
   }
 });
 
-// Otevření/skrytí pole pro vyhledávání
+// Zobrazit/skryt vyhledávání
 searchIcon?.addEventListener('click', (e) => {
   e.stopPropagation();
   if (searchForm) {
@@ -59,7 +62,7 @@ searchIcon?.addEventListener('click', (e) => {
   }
 });
 
-// Vyhledávání – přechod na sekci
+// Odeslání vyhledávacího formuláře
 searchForm?.addEventListener('submit', (e) => {
   e.preventDefault();
   const query = searchInput?.value.trim().toLowerCase();
@@ -73,9 +76,11 @@ searchForm?.addEventListener('submit', (e) => {
   }
 });
 
-// Klik na logo – návrat na #domu
+// Klik na logo – návrat na Domů
 logoLink?.addEventListener('click', (e) => {
   e.preventDefault();
   document.getElementById('domu')?.scrollIntoView({ behavior: 'smooth' });
 });
+
+
 
