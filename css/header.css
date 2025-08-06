@@ -175,6 +175,10 @@
   font-size: 14px;
   width: 160px; 
 }
+.search-wrapper input::placeholder {
+  font-size: 11px; 
+  color: #999;    
+}
 .search-wrapper input:focus {
   outline: none;
   border: 1px solid #02a9be;
@@ -197,7 +201,7 @@
   font-size: 24px;
   background: none;
   border: none;
-  color: #f2f2f2;
+  color: #02a9be;
   cursor: pointer;
 }
 
@@ -205,7 +209,7 @@
 .mobile-nav {
   display: none;
   flex-direction: column;
-  background-color: #444;
+  background-color: #fff;
   padding: 10px;
   position: absolute;
   width: auto;
@@ -218,6 +222,9 @@
   top: 100%;
   z-index: 999;
   border-radius: 8px;
+}
+.mobile-nav a {
+  color: #444; /* tmavý text */
 }
 
 .mobile-nav.show {
