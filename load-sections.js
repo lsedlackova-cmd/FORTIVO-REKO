@@ -1,4 +1,3 @@
-// Seznam sekcí, které se načítají do index.html
 const sections = [
   "header",
   "domu",
@@ -21,13 +20,18 @@ sections.forEach(section => {
       if (container) {
         container.innerHTML = html;
 
-        // Pokud je to header, připoj JS pro funkčnost menu a vyhledávání
         if (section === "header") {
           const headerScript = document.createElement("script");
           headerScript.src = "js/header.js";
           headerScript.defer = true;
           document.body.appendChild(headerScript);
         }
+        if (section === "domu") {
+          const domuScript = document.createElement("script");
+          domuScript.src = "js/domu.js";
+          domuScript.defer = true;
+          document.body.appendChild(domuScript);
+}
       } else {
         console.warn(`Element s ID '${section}' nebyl nalezen v index.html`);
       }
