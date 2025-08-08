@@ -1,9 +1,14 @@
 .about-section {
-  padding-top: 100px;   
+  min-height: 100vh;                
+  padding-top: 100px;               
   padding-bottom: 60px;
   background: #f7f7f7;
   font-family: 'Montserrat', sans-serif;
   color: #222;
+  display: flex;                    
+  align-items: center;              
+  box-sizing: border-box;
+  scroll-margin-top: 100px;         
 }
 
 .about-container {
@@ -11,27 +16,24 @@
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
+  width: 100%;
 }
 
-/* Desktop grid: text vlevo, fotka vpravo */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* text | foto */
+  grid-template-columns: 1fr 1fr; 
   align-items: center;
   gap: 40px;
 }
 
-.about-text h2 {
-  font-size: 36px;
-  line-height: 1.2;
-  margin: 0 0 12px;
-}
-
-.about-text p {
-  font-size: 16px;
+.about-text {
+  font-size: 16px;        
   line-height: 1.7;
   color: #444;
+}
+.about-text p {
   margin: 0 0 14px;
+  text-align: justify;
 }
 
 .about-photo img {
@@ -70,3 +72,82 @@
   font-size: 14px;
   color: #555;
 }
+
+@media (max-width: 1024px) {
+  .about-section {
+    padding-top: 90px;
+    padding-bottom: 50px;
+    scroll-margin-top: 90px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr; 
+    gap: 26px;
+  }
+
+  .about-text { font-size: 15px; } 
+
+  .about-photo img {
+    max-height: 520px;
+    object-fit: cover;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .stat { padding: 16px 14px; }
+  .stat-num { font-size: 28px; }
+  .stat-label { font-size: 13px; }
+}
+
+/* Běžné mobily */
+@media (max-width: 768px) {
+  .about-section {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    scroll-margin-top: 80px;
+  }
+
+  .about-text { font-size: 15px; }
+
+  .about-photo img {
+    max-height: 420px;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .stat { padding: 14px 12px; }
+  .stat-num { font-size: 26px; }
+  .stat-label { font-size: 13px; }
+}
+
+/* Malé mobily */
+@media (max-width: 480px) {
+  .about-section {
+    padding-top: 76px;
+    padding-bottom: 34px;
+    scroll-margin-top: 76px;
+  }
+
+  .about-text { font-size: 14px; } 
+
+  .about-photo img {
+    max-height: 340px;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+
+  .stat { padding: 12px 12px; }
+  .stat-num { font-size: 24px; }
+  .stat-label { font-size: 12px; }
+}
+

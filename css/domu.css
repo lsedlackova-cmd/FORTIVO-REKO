@@ -1,16 +1,15 @@
-/* === Sekce DOMŮ === */
 .home-section {
-  padding-top: 100px; /* mezera pod headerem */
+  padding-top: 100px; 
+  background: #f7f7f7;
 }
 
-/* === Video sekce === */
 .hero-video {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center; /* na desktopu centrováno */
+  align-items: center; 
   min-height: 100vh;
-  padding: 10px 0; /* mezera nad i pod videem na desktopu */
+  padding: 10px 0; 
   overflow: hidden;
   max-width: 1200px;
   margin: 0 auto;

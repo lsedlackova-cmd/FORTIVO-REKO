@@ -6,7 +6,7 @@
 
   const easeOut = t => 1 - Math.pow(1 - t, 3);
 
-  function animate(el, to, dur = 1200) {
+  function animate(el, to, dur = 2000) {
     const start = performance.now();
     const from = 0;
     function frame(now) {
