@@ -1,13 +1,19 @@
+/* ===========================
+   Header (Fortivo Reko)
+   Čistá verze – bez duplicit
+   Pozn.: zavírání menu po kliknutí řeší JS (header.js)
+   =========================== */
+
+/* ========== ZÁKLADNÍ LAYOUT ========== */
 .site-header {
   background-color: #444;
   color: #d0d0d0;
   padding: 1rem 2rem;
   font-family: 'Montserrat', sans-serif;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 .container {
@@ -22,15 +28,11 @@
   width: 100%;
 }
 
-.logo img {
-  height: 50px;
-  cursor: pointer;
-}
-.logo {
-  margin-left: -85px;
-}
+/* Logo – necháváme na tvé přesné pozici */
+.logo img { height: 50px; cursor: pointer; }
+.logo { margin-left: -85px; }
 
-/* Navigace */
+/* ========== DESKTOP NAVIGACE ========== */
 .main-nav ul {
   display: flex;
   gap: 40px;
@@ -40,159 +42,62 @@
   align-items: center;
 }
 
-.mobile-nav {
-  display: none;
-  flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.97);
-  padding: 10px 14px;
-  position: absolute;
-  top: 100%;
-  right: 10px;
-  z-index: 999;
-  border-radius: 8px;
-  min-width: 150px;
-  max-width: 90vw;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.mobile-nav ul {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  align-items: flex-start;
-}
-
-.main-nav a,
-.mobile-nav a {
+.main-nav a {
   text-decoration: none;
   text-transform: uppercase;
   color: #e8e8e8;
   font-weight: 500;
   font-size: 15px;
-  transition: color 0.3s ease;
+  transition: color .3s ease;
 }
+.main-nav a:hover { color: #02a9be; }
 
-.main-nav a:hover,
-.mobile-nav a:hover {
-  color: #02a9be;
-}
-
-
-/* Dropdown – Desktop */
-.dropdown {
-  position: relative;
-  z-index: 3;
-}
+/* ========== DESKTOP DROPDOWN ========== */
+.dropdown { position: relative; z-index: 3; }
 
 .dropdown .submenu {
   display: none;
   flex-direction: column;
-  background-color: #fff;
-  position: absolute;
-  top: 100%;
-  left: 0;
+  position: absolute; top: 100%; left: 0;
   margin-top: 32px;
-  padding: 10px 0 4px 0;
-  z-index: 10;
+  padding: 10px 0 4px;
+  background-color: #fff;
   border-radius: 5px;
   min-width: 180px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 10px rgba(0,0,0,.25);
+  z-index: 10;
   opacity: 0;
   transform: translateY(10px);
-  transition: all 0.3s ease;
-  gap: 2px; 
+  transition: opacity .3s ease, transform .3s ease;
+  gap: 2px;
 }
-
 .dropdown.open .submenu {
   display: flex;
   opacity: 1;
   transform: translateY(0);
 }
+.dropdown .submenu li { padding: 12px 15px; line-height: 1.4; }
+.dropdown .submenu li:last-child { margin-bottom: 0; }
+.dropdown .submenu li a { color: #444; font-size: 14px; }
+.dropdown .submenu li a:hover { color: #02a9be; }
 
-.dropdown .submenu li {
-  padding: 12px 15px; 
-  line-height: 1.4;
-}
-.dropdown .submenu li:last-child {
-  margin-bottom: 0;
-}
-
-.dropdown .submenu li a {
-  color: #444;
-  font-size: 14px;
-}
-
-.dropdown .submenu li a:hover {
-  color: #02a9be;
-}
-
+/* šipka – barvou odpovídá bílému pozadí submenu */
 .dropdown.open .submenu::before {
   content: "";
   position: absolute;
-  top: -10px;
-  left: 20px;
+  top: -10px; left: 20px;
   border: 5px solid transparent;
-  border-bottom-color: #444;
+  border-bottom-color: #fff;
 }
 
-/* Mobile Dropdown */
-.mobile-dropdown {
-  position: relative;
-  width: 100%;       
-  min-width: 0;
-  max-width: 100%;
-  margin-left: 0;     
-}
-
-
-.mobile-dropdown .submenu {
-  display: none;
-  flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.98); /* jemně průsvitné bílé pozadí */
-  padding: 6px 8px;
-  gap: 15px;
-  overflow-x: hidden;
-  white-space: normal;
-  border-radius: 6px;
-  margin-top: 5px;
-  margin-left: 24px; /* odsunutí doprava od hlavního menu */
-  width: fit-content;
-  max-width: 200px;
-  box-sizing: border-box;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /* jemný stín */
-  border: 1px solid rgba(2, 169, 190, 0.15); /* jemná linka v barvě tvého brandu */
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.mobile-dropdown.open .submenu {
-  display: flex;
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.mobile-dropdown .submenu a {
-  color: #444;
-  font-size: 13px;
-}
-
-.mobile-dropdown .submenu a:hover {
-  color: #02a9be;
-}
-
-/* Vyhledávání */
+/* ========== CONTROLS (SEARCH + HAMBURGER) ========== */
 .controls {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
+/* Search */
 .search-wrapper {
   position: relative;
   display: flex;
@@ -201,7 +106,6 @@
   gap: 10px;
   margin-right: 0;
 }
-
 .search-wrapper input {
   padding: 6px 10px 6px 30px;
   border-radius: 5px;
@@ -210,87 +114,114 @@
   background: #fff;
   color: #000;
   font-size: 14px;
-  max-width: 120px; 
+  max-width: 120px;
 }
-.search-wrapper input::placeholder {
-  font-size: 12px; 
-  color: #999;    
-}
+.search-wrapper input::placeholder { font-size: 12px; color: #999; }
 .search-wrapper input:focus {
   outline: none;
   border: 1px solid #02a9be;
   box-shadow: 0 0 5px #02a9be;
 }
-
 .search-wrapper .search-icon {
-  position: absolute;
-  left: 8px; 
-  top: 50%;
+  position: absolute; left: 8px; top: 50%;
   transform: translateY(-50%);
-  color: #02a9be; 
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 2; 
+  color: #02a9be; font-size: 16px;
+  cursor: pointer; z-index: 2;
 }
 
 /* Hamburger */
 .menu-toggle {
   font-size: 24px;
-  background: none;
-  border: none;
-  color: #02a9be;
-  cursor: pointer;
+  background: none; border: none;
+  color: #02a9be; cursor: pointer;
   margin-right: 0;
 }
 
-/* === MOBILNÍ NAVIGACE === */
+/* ========== MOBILNÍ MENU (kompaktní „card“ pod headerem) ========== */
 .mobile-nav {
+  display: none;                 /* řízeno třídou .show z JS */
+  flex-direction: column;
+  position: absolute;            /* držíme u headeru */
+  top: 100%;                     /* hned pod headerem */
+  right: 10px;
+  padding: 10px 14px;
+  background-color: rgba(255,255,255,.97);
+  border-radius: 8px;
+
+  /* zúžený box + scroll, aby „nevisel“ přes obrazovku */
+  width: fit-content;
+  min-width: 150px;
+  max-width: 90vw;
+  max-height: 70vh;
+  overflow-y: auto;
+
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  z-index: 999;
+}
+.mobile-nav.show { display: flex; }
+
+.mobile-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0; padding: 0;
+  list-style: none;
+  align-items: flex-start;
+}
+.mobile-nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #444;                 /* tmavý text v mobilním boxu */
+  font-weight: 500;
+  font-size: 15px;
+  transition: color .3s ease;
+}
+.mobile-nav a:hover { color: #02a9be; }
+
+/* ========== MOBILNÍ DROPDOWN + SUBMENU ========== */
+.mobile-dropdown { position: relative; width: 100%; }
+
+.mobile-dropdown .submenu {
   display: none;
   flex-direction: column;
-  background-color: #fff;
-  padding: 10px;
-  position: absolute;
-  top: 100%;
-  right: 10px;
-  z-index: 999;
-  border-radius: 8px;
-  width: auto;
-  min-width: 200px;
-  max-width: 90vw;
+  background-color: rgba(255,255,255,.98);
+  padding: 6px 8px;
+  gap: 12px;
+  border-radius: 6px;
+  margin-top: 5px;
+
+  /* jemný posun doprava od rodiče (nezvětšuje řádek) */
+  margin-left: 24px;
+  width: fit-content; max-width: 200px;
   box-sizing: border-box;
-  overflow-x: hidden;
-}
 
-.mobile-nav a {
-  color: #444; /* tmavý text */
-}
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  border: 1px solid rgba(2,169,190,.15);
 
-.mobile-nav.show {
+  /* jemná animace vyjetí */
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity .3s ease, transform .3s ease;
+}
+.mobile-dropdown.open .submenu {
   display: flex;
+  opacity: 1;
+  transform: translateX(0);
 }
+.mobile-dropdown .submenu a { color: #444; font-size: 13px; }
+.mobile-dropdown .submenu a:hover { color: #02a9be; }
 
-.desktop-only {
-  display: flex;
-}
+/* ========== UTILITKY ========== */
+.desktop-only { display: flex; }
+.mobile-only  { display: none; }
+.hidden { display: none !important; }
 
-.mobile-only {
-  display: none;
-}
-
-.hidden {
-  display: none !important;
-}
-
-/* === RESPONSIVITA === */
+/* ========== RESPONSIVITA ========== */
 @media (max-width: 1024px) {
-  .main-nav a,
-  .mobile-nav a {
-    font-size: 14px;
-  }
+  .main-nav a, .mobile-nav a { font-size: 14px; }
 
-  .search-wrapper input {
-    max-width: 140px;
-  }
+  .search-wrapper input { max-width: 140px; }
 
   .container {
     width: 100%;
@@ -300,68 +231,48 @@
 }
 
 @media (max-width: 768px) {
-   header {
+  /* header jako takový zůstává fixed – jen vnitřní rozložení */
+  header {
     flex-direction: column;
     align-items: flex-start;
     padding: 1rem;
     position: fixed;
-    }
-  .desktop-only {
-    display: none;
   }
 
-  .mobile-only {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-  }
- 
-  .nav-list {
-    flex-direction: column;
-  }
+  .desktop-only { display: none; }
+  .mobile-only  { display: flex; align-items: center; justify-content: flex-start; width: 100%; }
+
+  .nav-list { flex-direction: column; }
+
   .container {
     justify-content: space-between;
     gap: 12px;
     margin: 0 auto;
     box-sizing: border-box;
-   }
+  }
 
   .controls {
     display: flex;
-    margin-left: auto;             
-    padding-right: 60px;           
+    margin-left: auto;
+    padding-right: 60px;     /* odskok od pravého kraje */
     justify-content: flex-end;
     gap: 10px;
   }
 
-  .search-wrapper input {
-    max-width: 120px;
-  }
-  .menu-toggle {
-    margin-left: 5px;
-  }
+  .search-wrapper { margin-left: 5px; }
+  .search-wrapper input { max-width: 120px; }
 
-  .search-wrapper {
-    margin-left: 5px;
-  }
-  .logo {
-  margin-left: -30px;
-}
+  .menu-toggle { margin-left: 5px; }
+
+  /* Logo – korekce na mobilech */
+  .logo { margin-left: -30px; }
 }
 
 @media (max-width: 480px) {
-  .logo img {
-    height: 40px;
-    padding-left: 10px;
-  }
-  .logo {
-  margin-left: -30px;
-}
+  .logo img { height: 40px; padding-left: 10px; }
+  .logo { margin-left: -30px; }
 
-  .search-wrapper input {
-    width: 100px;
-  }
+  .search-wrapper input { width: 100px; }
 
   .controls {
     gap: 8px;
@@ -369,8 +280,6 @@
     justify-content: flex-end;
   }
 
-  .main-nav a,
-  .mobile-nav a {
-    font-size: 13px;
-  }
+  .main-nav a, .mobile-nav a { font-size: 13px; }
 }
+
