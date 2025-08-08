@@ -1,0 +1,72 @@
+.about-section {
+  padding-top: 100px;   
+  padding-bottom: 60px;
+  background: #f7f7f7;
+  font-family: 'Montserrat', sans-serif;
+  color: #222;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Desktop grid: text vlevo, fotka vpravo */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* text | foto */
+  align-items: center;
+  gap: 40px;
+}
+
+.about-text h2 {
+  font-size: 36px;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  margin: 0 0 14px;
+}
+
+.about-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 22px rgba(0,0,0,.12);
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.stat {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px 16px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+
+.stat-num {
+  font-size: 32px;
+  font-weight: 700;
+  color: #02a9be;
+  line-height: 1;
+}
+
+.stat-label {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #555;
+}

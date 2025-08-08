@@ -17,24 +17,26 @@ sections.forEach(section => {
     })
     .then(html => {
       const container = document.getElementById(section);
-      if (container) {
-        container.innerHTML = html;
-
-        if (section === "header") {
-          const headerScript = document.createElement("script");
-          headerScript.src = "js/header.js";
-          headerScript.defer = true;
-          document.body.appendChild(headerScript);
-        }
-        if (section === "domu") {
-          const domuScript = document.createElement("script");
-          domuScript.src = "js/domu.js";
-          domuScript.defer = true;
-          document.body.appendChild(domuScript);
-}
-      } else {
+      if (!container) {
         console.warn(`Element s ID '${section}' nebyl nalezen v index.html`);
+        return;
       }
+
+      container.innerHTML = html;
+
+      // Připojit skript dané sekce JEN JEDNOU
+      const ensureScript = (src) => {
+        if (!document.querySelector(`script[src="${src}"]`)) {
+          const s = document.createElement("script");
+          s.src = src;
+          s.defer = true;
+          document.body.appendChild(s);
+        }
+      };
+
+      if (section === "header") ensureScript("js/header.js");
+      if (section === "domu")   ensureScript("js/domu.js");
+      if (section === "o-nas")  ensureScript("js/o-nas.js");
     })
     .catch(err => {
       console.error(`Chyba při načítání sekce '${section}':`, err.message);
