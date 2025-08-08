@@ -19,6 +19,17 @@
   width: 100%;
 }
 
+/* === Nadpis sekce O nás === */
+.about-section h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 26px;
+  color: #444;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr; 
@@ -80,6 +91,11 @@
     scroll-margin-top: 90px;
   }
 
+  .about-section h2 {
+    font-size: 28px;
+    margin-bottom: 22px;
+  }
+
   .about-grid {
     grid-template-columns: 1fr; 
     gap: 26px;
@@ -111,6 +127,11 @@
     scroll-margin-top: 80px;
   }
 
+  .about-section h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
   .about-text { font-size: 15px; }
 
   .about-photo img {
@@ -135,6 +156,11 @@
     scroll-margin-top: 76px;
   }
 
+  .about-section h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+
   .about-text { font-size: 14px; } 
 
   .about-photo img {
@@ -150,4 +176,5 @@
   .stat-num { font-size: 24px; }
   .stat-label { font-size: 12px; }
 }
+
 
