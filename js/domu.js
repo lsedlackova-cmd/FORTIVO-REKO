@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+(function () {
   const video = document.getElementById("heroVideo");
   const button = document.getElementById("muteToggle");
 
@@ -7,19 +7,21 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Tlačítko pro zapnutí/vypnutí zvuku
+  video.muted = true;
+  button.textContent = "🔇";
+
   button.addEventListener("click", () => {
-    if (video.muted) {
-      video.muted = false;
-      video.volume = 1;
-      video.play ();
-      button.textContent = "🔊";
-    } else {
-      video.muted = true;
-      button.textContent = "🔇";
+    video.muted = !video.muted;
+    button.textContent = video.muted ? "🔇" : "🔊";
+
+    if (!video.paused) {
+      video.play().catch((err) => {
+        console.warn("Nepodařilo se přehrát video:", err.message);
+      });
     }
   });
-});
+})();
+
 
 
 

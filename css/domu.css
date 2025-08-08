@@ -1,9 +1,16 @@
+/* === Sekce DOMŮ === */
+.home-section {
+  padding-top: 100px; /* mezera pod headerem */
+}
+
+/* === Video sekce === */
 .hero-video {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* na desktopu centrováno */
   min-height: 100vh;
+  padding: 10px 0; /* mezera nad i pod videem na desktopu */
   overflow: hidden;
   max-width: 1200px;
   margin: 0 auto;
@@ -17,9 +24,10 @@
   border: none;
 }
 
+/* === Tlačítko zvuku === */
 .mute-button {
   position: absolute;
-  top: 20px;
+  top: 40px;
   right: 20px;
   background-color: rgba(2, 169, 190, 0.9); 
   color: white;
@@ -35,6 +43,77 @@
 .mute-button:hover {
   background-color: #0295a5; 
 }
-.home-section {
-  padding-top: 100px; 
+
+/* === Responzivita === */
+
+/* Tablety a menší notebooky */
+@media (max-width: 1024px) {
+  .hero-video {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0 20px 0;       /* větší mezera shora */
+    align-items: flex-start;       /* zarovnání videa nahoru */
+    min-height: auto;              /* odstranění 100vh */
+    padding-top: 5px;
+  }
+
+  .hero-video video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 80vh;
+  }
+
+  .mute-button {
+    top: auto;
+    bottom: 40px;                /* posunuto níž */
+    right: 20px;                 /* zarovnáno doprava */
+    font-size: 16px;
+    padding: 9px 11px;
+  }
 }
+
+/* Mobily */
+@media (max-width: 768px) {
+  .hero-video {
+    padding: 10px 0 20px 0;
+    align-items: flex-start;
+    min-height: auto;
+    padding-top: 5px;
+  }
+
+  .hero-video video {
+    width: 100%;
+    max-height: 80vh;
+  }
+
+  .mute-button {
+    bottom: 30px;
+    right: 18px;
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}
+
+/* Malé mobily */
+@media (max-width: 480px) {
+  .hero-video {
+    padding: 10px 0 10px 0;
+    align-items: flex-start;
+    min-height: auto;
+    padding-top: 5px;
+  }
+
+  .hero-video video {
+    max-height: 70vh;
+  }
+
+  .mute-button {
+    bottom: 20px;
+    right: 12px;
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}
+
