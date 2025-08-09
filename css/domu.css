@@ -23,7 +23,6 @@
   border: none;
 }
 
-/* === Tlačítko zvuku === */
 .mute-button {
   position: absolute;
   top: 40px;
@@ -43,17 +42,14 @@
   background-color: #0295a5; 
 }
 
-/* === Responzivita === */
-
-/* Tablety a menší notebooky */
 @media (max-width: 1024px) {
   .hero-video {
     max-width: none;
     width: 100%;
     margin: 0;
-    padding: 10px 0 20px 0;       /* větší mezera shora */
-    align-items: flex-start;       /* zarovnání videa nahoru */
-    min-height: auto;              /* odstranění 100vh */
+    padding: 10px 0 20px 0;       
+    align-items: flex-start;       
+    min-height: auto;             
     padding-top: 5px;
   }
 
@@ -66,14 +62,13 @@
 
   .mute-button {
     top: auto;
-    bottom: 40px;                /* posunuto níž */
-    right: 20px;                 /* zarovnáno doprava */
+    bottom: 40px;               
+    right: 20px;                 
     font-size: 16px;
     padding: 9px 11px;
   }
 }
 
-/* Mobily */
 @media (max-width: 768px) {
   .hero-video {
     padding: 10px 0 20px 0;
@@ -95,7 +90,6 @@
   }
 }
 
-/* Malé mobily */
 @media (max-width: 480px) {
   .hero-video {
     padding: 10px 0 10px 0;

@@ -1,10 +1,3 @@
-/* ===========================
-   Header (Fortivo Reko)
-   Čistá verze – bez duplicit
-   Pozn.: zavírání menu po kliknutí řeší JS (header.js)
-   =========================== */
-
-/* ========== ZÁKLADNÍ LAYOUT ========== */
 .site-header {
   background-color: #444;
   color: #d0d0d0;
@@ -28,11 +21,9 @@
   width: 100%;
 }
 
-/* Logo – necháváme na tvé přesné pozici */
 .logo img { height: 50px; cursor: pointer; }
 .logo { margin-left: -85px; }
 
-/* ========== DESKTOP NAVIGACE ========== */
 .main-nav ul {
   display: flex;
   gap: 40px;
@@ -52,7 +43,6 @@
 }
 .main-nav a:hover { color: #02a9be; }
 
-/* ========== DESKTOP DROPDOWN ========== */
 .dropdown { position: relative; z-index: 3; }
 
 .dropdown .submenu {
@@ -81,7 +71,6 @@
 .dropdown .submenu li a { color: #444; font-size: 14px; }
 .dropdown .submenu li a:hover { color: #02a9be; }
 
-/* šipka – barvou odpovídá bílému pozadí submenu */
 .dropdown.open .submenu::before {
   content: "";
   position: absolute;
@@ -90,14 +79,12 @@
   border-bottom-color: #fff;
 }
 
-/* ========== CONTROLS (SEARCH + HAMBURGER) ========== */
 .controls {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-/* Search */
 .search-wrapper {
   position: relative;
   display: flex;
@@ -129,7 +116,7 @@
   cursor: pointer; z-index: 2;
 }
 
-/* Hamburger */
+
 .menu-toggle {
   font-size: 24px;
   background: none; border: none;
@@ -137,18 +124,17 @@
   margin-right: 0;
 }
 
-/* ========== MOBILNÍ MENU (kompaktní „card“ pod headerem) ========== */
+
 .mobile-nav {
-  display: none;                 /* řízeno třídou .show z JS */
+  display: none;              
   flex-direction: column;
-  position: absolute;            /* držíme u headeru */
-  top: 100%;                     /* hned pod headerem */
+  position: absolute;            
+  top: 100%;                    
   right: 10px;
   padding: 10px 14px;
   background-color: rgba(255,255,255,.97);
   border-radius: 8px;
 
-  /* zúžený box + scroll, aby „nevisel“ přes obrazovku */
   width: fit-content;
   min-width: 150px;
   max-width: 90vw;
@@ -172,14 +158,13 @@
 .mobile-nav a {
   text-decoration: none;
   text-transform: uppercase;
-  color: #444;                 /* tmavý text v mobilním boxu */
+  color: #444;                
   font-weight: 500;
   font-size: 15px;
   transition: color .3s ease;
 }
 .mobile-nav a:hover { color: #02a9be; }
 
-/* ========== MOBILNÍ DROPDOWN + SUBMENU ========== */
 .mobile-dropdown { position: relative; width: 100%; }
 
 .mobile-dropdown .submenu {
@@ -190,16 +175,11 @@
   gap: 12px;
   border-radius: 6px;
   margin-top: 5px;
-
-  /* jemný posun doprava od rodiče (nezvětšuje řádek) */
   margin-left: 24px;
   width: fit-content; max-width: 200px;
   box-sizing: border-box;
-
   box-shadow: 0 4px 12px rgba(0,0,0,.12);
   border: 1px solid rgba(2,169,190,.15);
-
-  /* jemná animace vyjetí */
   opacity: 0;
   transform: translateX(-10px);
   transition: opacity .3s ease, transform .3s ease;
@@ -212,12 +192,10 @@
 .mobile-dropdown .submenu a { color: #444; font-size: 13px; }
 .mobile-dropdown .submenu a:hover { color: #02a9be; }
 
-/* ========== UTILITKY ========== */
 .desktop-only { display: flex; }
 .mobile-only  { display: none; }
 .hidden { display: none !important; }
 
-/* ========== RESPONSIVITA ========== */
 @media (max-width: 1024px) {
   .main-nav a, .mobile-nav a { font-size: 14px; }
 
@@ -231,7 +209,6 @@
 }
 
 @media (max-width: 768px) {
-  /* header jako takový zůstává fixed – jen vnitřní rozložení */
   header {
     flex-direction: column;
     align-items: flex-start;
@@ -254,7 +231,7 @@
   .controls {
     display: flex;
     margin-left: auto;
-    padding-right: 60px;     /* odskok od pravého kraje */
+    padding-right: 60px;   
     justify-content: flex-end;
     gap: 10px;
   }
@@ -264,7 +241,6 @@
 
   .menu-toggle { margin-left: 5px; }
 
-  /* Logo – korekce na mobilech */
   .logo { margin-left: -30px; }
 }
 

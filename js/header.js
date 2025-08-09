@@ -122,7 +122,6 @@ document.querySelector('.main-nav')?.addEventListener('click', (e) => {
   closeDesktopDD();
 });
 
-// LOGO -> Domů
 logoLink?.addEventListener('click', (e) => {
   e.preventDefault();
   document.getElementById('domu')?.scrollIntoView({ behavior: 'smooth' });
