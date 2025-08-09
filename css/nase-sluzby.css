@@ -1,0 +1,158 @@
+:root { --header-h: 100px; }
+
+.services-section {
+  background: #f7f7f7;
+  padding: 100px 0 60px;           /* odsazení pod fixním headerem */
+  scroll-margin-top: var(--header-h);
+  font-family: 'Montserrat', sans-serif;
+  color: #222;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.services-section h2 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 32px;
+  color: #444;
+  margin: 0 0 26px;
+}
+
+.service-block {
+  margin: 36px 0 60px;
+}
+
+.service-header h3 {
+  font-size: 22px;
+  margin: 0 0 6px;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.service-desc {
+  margin: 0 0 16px;
+  color: #666;
+  font-size: 15px;
+}
+
+/* === Carousel === */
+.carousel {
+  position: relative;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.carousel-track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+
+  overflow: hidden;
+  border-radius: 14px;
+  background: #fff;
+
+  /* rámeček a stín */
+  border: 1px solid rgba(2, 169, 190, 0.15);
+  box-shadow: 0 10px 28px rgba(0,0,0,.08);
+
+  /* fixní poměr — vypadají „kartičkově“ */
+  aspect-ratio: 16 / 9;
+}
+
+.carousel-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  /* vnitřní rámeček obrázku */
+  border-radius: 12px;
+}
+
+/* Šipky */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+
+  background: rgba(255,255,255,.9);
+  border: 1px solid rgba(2, 169, 190, 0.2);
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 38px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+.carousel-btn:hover {
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+}
+.carousel-btn:active { transform: translateY(-50%) scale(0.98); }
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+/* Tečky */
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+}
+.carousel-dots button {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 0;
+  background: #cfd8dc;
+  cursor: pointer;
+  transition: transform .15s ease, background .2s ease;
+}
+.carousel-dots button[aria-current="true"] {
+  width: 22px; height: 8px;
+  background: #02a9be;
+}
+.carousel-dots button:hover { transform: scale(1.1); }
+
+/* Responsivita */
+@media (max-width: 1024px) {
+  .services-section h2 { font-size: 28px; }
+  .service-header h3 { font-size: 20px; }
+}
+
+@media (max-width: 768px) {
+  .services-section { padding: 90px 0 48px; }
+  .services-section h2 { font-size: 26px; }
+  .carousel-btn { width: 36px; height: 36px; line-height: 34px; font-size: 18px; }
+  .carousel-dots { gap: 6px; }
+}
+
+@media (max-width: 480px) {
+  .services-section { padding: 80px 0 40px; }
+  .services-section h2 { font-size: 22px; }
+  .service-header h3 { font-size: 18px; }
+  .service-desc { font-size: 14px; }
+}
