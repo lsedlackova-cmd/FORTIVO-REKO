@@ -1,6 +1,4 @@
-/* ===== Naše služby – layout ===== */
 :root {
-  /* Pokud máš jinou výšku fixního headeru, uprav si to tady */
   --header-offset: 80px;
 }
 
@@ -9,12 +7,9 @@
 }
 
 .service {
-  /* desktop: každá služba přes téměř celou obrazovku, odečteme header */
   min-height: calc(100vh - var(--header-offset));
   display: flex;
   align-items: center;
-
-  /* když skočíme na #anchor, nadpis nebude schovaný pod headerem */
   scroll-margin-top: var(--header-offset);
 }
 
@@ -22,7 +17,6 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  /* menší horní padding, ať je nadpis výš */
   padding: 40px 20px;
 }
 
@@ -42,15 +36,11 @@
   margin: 0 0 24px 0;
 }
 
-/* ===== Karusel – kontinuální posouvání ===== */
 .service-carousel { user-select: none; }
 
 .carousel-viewport {
   position: relative;
   width: 100%;
-  /* Místo pevného aspect-ratio dáme fixní, responzivní výšku.
-     Díky tomu spočítáme šířky položek podle skutečného poměru stran fotek,
-     takže nevznikne falešná "mezera" okolo obrázku. */
   height: clamp(260px, 56vw, 560px);
 
   background: #f7f7f7;
@@ -67,7 +57,7 @@
   display: flex;
   align-items: center;
   height: calc(100% - 0px);
-  gap: 4px; /* skutečná mezera mezi fotkami (jemná) */
+  gap: 4px; 
   animation: scroll-x var(--scroll-duration, 30s) linear infinite;
 }
 
@@ -76,8 +66,6 @@
   to   { transform: translateX(-50%); }
 }
 
-/* Šířku položek už NEnastavujeme v CSS — dopočítá se v JS
-   podle poměru stran (naturalWidth/ naturalHeight) každé fotky. */
 .carousel-item {
   height: 100%;
   display: flex;
@@ -86,21 +74,18 @@
 }
 
 .carousel-item img {
-  height: 100%;          /* řídíme výškou; šířka se přizpůsobí poměru */
-  width: auto;           /* důležité pro zachování poměru stran */
-  object-fit: contain;   /* celá fotka beze ztrát */
+  height: 100%;          
+  width: auto;           
+  object-fit: contain;   
   border-radius: 8px;
 }
 
-/* Tečky pro tento režim nepotřebujeme */
 .carousel-dots { display: none; }
 
-/* Prefer-reduced-motion: vypnout animaci */
 @media (prefers-reduced-motion: reduce) {
   .carousel-track { animation: none; }
 }
 
-/* ===== Responsivita ===== */
 @media (max-width: 960px) {
   .service { 
     min-height: auto; 
@@ -113,7 +98,7 @@
   .carousel-viewport {
     border-radius: 10px;
     padding: 4px;
-    height: clamp(220px, 60vw, 420px); /* o fous vyšší na mobilech */
+    height: clamp(220px, 60vw, 420px); 
   }
   .carousel-track { inset: 4px; gap: 4px; }
 }

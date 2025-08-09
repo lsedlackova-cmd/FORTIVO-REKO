@@ -1,8 +1,6 @@
-// Naše služby – kontinuální scroll (marquee) s šířkou položek podle poměru stran fotek
 (function () {
-  const DURATION_SEC = 30; // délka jednoho kompletního průjezdu
+  const DURATION_SEC = 10; 
 
-  /** Plynulé skrolování na element podle hashe */
   function scrollToServiceByHash() {
     const hash = window.location.hash.replace('#', '');
     if (!hash) return;
@@ -17,13 +15,6 @@
     document.querySelectorAll('.service-carousel').forEach(setupMarquee);
   }
 
-  /**
-   * Plynule posouvaný pás snímků:
-   * - vložíme 2× sérii (1..count) pro bezešvou smyčku
-   * - po načtení každého obrázku spočítáme šířku položky:
-   *   itemWidth = viewportHeight * (naturalWidth / naturalHeight)
-   *   → tím odstraníme falešné „mezery“ způsobené letterboxingem
-   */
   function setupMarquee(root) {
     const name = root.getAttribute('data-name');
     const count = parseInt(root.getAttribute('data-count'), 10) || 0;
@@ -34,7 +25,6 @@
     track.className = 'carousel-track';
     viewport.appendChild(track);
 
-    // Pomocné pole pro položky a img
     const items = [];
     const imgs = [];
 
@@ -58,28 +48,24 @@
       for (let i = 1; i <= count; i++) makeItem(i);
     }
 
-    // dvě série za sebou
     appendSeries();
     appendSeries();
 
-    // rychlost animace přes CSS proměnnou
     root.style.setProperty('--scroll-duration', `${DURATION_SEC}s`);
 
-    // Po načtení každého obrázku dopočítej šířku položky podle poměru stran
     function layout() {
-      const vpHeight = viewport.clientHeight; // výška je fixní (CSS)
+      const vpHeight = viewport.clientHeight; 
       imgs.forEach((img, idx) => {
         const item = items[idx];
         const nw = img.naturalWidth;
         const nh = img.naturalHeight;
         if (nw > 0 && nh > 0) {
-          const widthPx = Math.max(80, Math.round(vpHeight * (nw / nh))); // pojistka min 80px
+          const widthPx = Math.max(80, Math.round(vpHeight * (nw / nh))); 
           item.style.flex = `0 0 ${widthPx}px`;
         }
       });
     }
 
-    // Když je obrázek už v cache
     imgs.forEach(img => {
       if (img.complete) {
         layout();
@@ -89,7 +75,6 @@
       }
     });
 
-    // Reflow při resize (přepočítat šířky + hladce restartovat animaci)
     let raf;
     function relayoutAndRestart() {
       layout();
@@ -99,11 +84,9 @@
     }
     window.addEventListener('resize', relayoutAndRestart);
 
-    // První layout po vložení do DOMu
     layout();
   }
 
-  // Start po dosazení sekce do DOMu
   if (document.querySelector('.services-section')) {
     initServices();
   } else {
