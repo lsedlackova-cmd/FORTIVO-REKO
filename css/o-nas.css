@@ -91,7 +91,7 @@
   }
 
   .about-section h2 {
-    font-size: 28px;
+    font-size: 22px;
     margin-bottom: 22px;
   }
 
@@ -100,7 +100,7 @@
     gap: 26px;
   }
 
-  .about-text { font-size: 15px; } 
+  .about-text { font-size: 14px; } 
 
   .about-photo img {
     max-height: 520px;
@@ -115,7 +115,7 @@
 
   .stat { padding: 16px 14px; }
   .stat-num { font-size: 28px; }
-  .stat-label { font-size: 13px; }
+  .stat-label { font-size: 16px; }
 }
 
 @media (max-width: 768px) {
@@ -126,11 +126,11 @@
   }
 
   .about-section h2 {
-    font-size: 26px;
+    font-size: 22px;
     margin-bottom: 20px;
   }
 
-  .about-text { font-size: 15px; }
+  .about-text { font-size: 14px; }
 
   .about-photo img {
     max-height: 420px;
