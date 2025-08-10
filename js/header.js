@@ -1,6 +1,6 @@
 const menuToggle   = document.getElementById('menuToggle');
 const mobileMenu   = document.getElementById('mobileMenu');
-const dropdown     = document.querySelector('.dropdown');           // desktop
+const dropdown     = document.querySelector('.dropdown');           
 const dropdownTgl  = document.querySelector('.dropdown-toggle');
 const searchIcon   = document.getElementById('searchIcon');
 const searchForm   = document.getElementById('searchForm');
@@ -10,7 +10,7 @@ const logoLink     = document.querySelector('.logo');
 const openMobileMenu  = () => {
   if (!mobileMenu) return;
   mobileMenu.classList.add('show');
-  mobileMenu.classList.remove('hidden');     // musí pryč, jinak je display:none !important
+  mobileMenu.classList.remove('hidden');     
   menuToggle?.setAttribute('aria-expanded','true');
 };
 
@@ -40,7 +40,6 @@ dropdownTgl?.addEventListener('keydown', (e) => {
   if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dropdownTgl.click(); }
 });
 
-// CLICK OUTSIDE + ESC
 document.addEventListener('click', (e) => {
   if (!inside(e.target, dropdown) && !inside(e.target, dropdownTgl)) closeDesktopDD();
   if (!inside(e.target, mobileMenu) && !inside(e.target, menuToggle)) closeMobileMenu();
@@ -48,7 +47,6 @@ document.addEventListener('click', (e) => {
 });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeDesktopDD(); closeMobileMenu(); } });
 
-// SEARCH
 searchIcon?.addEventListener('click', (e) => {
   e.stopPropagation();
   if (!searchForm) return;

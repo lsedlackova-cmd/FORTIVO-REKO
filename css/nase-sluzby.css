@@ -42,7 +42,7 @@
   line-height: 1.7;
   color: #444;
   margin: 0 0 14px;
-  text-align: justify;
+  text-align: left;
 }
 
 .service-carousel { user-select: none; }
