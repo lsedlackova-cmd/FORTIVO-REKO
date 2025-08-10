@@ -51,10 +51,10 @@
   position: absolute; top: 100%; left: 0;
   margin-top: 32px;
   padding: 10px 0 4px;
-  background-color: #fff;
+  background-color: #f7f7f7;
   border-radius: 5px;
   min-width: 180px;
-  box-shadow: 0 4px 10px rgba(0,0,0,.25);
+  box-shadow: 0 4px 10px rgba(0,0,0,.50);
   z-index: 10;
   opacity: 0;
   transform: translateY(10px);
@@ -81,7 +81,7 @@
 
 .controls {
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 15px;
 }
 
@@ -132,17 +132,15 @@
   top: 100%;                    
   right: 10px;
   padding: 10px 14px;
-  background-color: rgba(255,255,255,.97);
+  background-color: #f7f7f7;
   border-radius: 8px;
-
   width: fit-content;
   min-width: 150px;
   max-width: 90vw;
   max-height: 70vh;
   overflow-y: auto;
-
   box-sizing: border-box;
-  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
   z-index: 999;
 }
 .mobile-nav.show { display: flex; }
@@ -170,16 +168,15 @@
 .mobile-dropdown .submenu {
   display: none;
   flex-direction: column;
-  background-color: rgba(255,255,255,.98);
+  background-color: transparent; /* ← průhledné pozadí */
   padding: 6px 8px;
   gap: 12px;
-  border-radius: 6px;
+  border-radius: 0; /* ← zruší zaoblení rohů */
   margin-top: 5px;
   margin-left: 24px;
   width: fit-content; max-width: 200px;
   box-sizing: border-box;
-  box-shadow: 0 4px 12px rgba(0,0,0,.12);
-  border: 1px solid rgba(2,169,190,.15);
+  box-shadow: none; /* ← odstraní stín */
   opacity: 0;
   transform: translateX(-10px);
   transition: opacity .3s ease, transform .3s ease;
@@ -217,7 +214,7 @@
   }
 
   .desktop-only { display: none; }
-  .mobile-only  { display: flex; align-items: center; justify-content: flex-start; width: 100%; }
+  .mobile-only  { display: flex; align-items: left; justify-content: flex-start; width: 65%; }
 
   .nav-list { flex-direction: column; }
 
