@@ -25,7 +25,6 @@ sections.forEach(section => {
 
       container.innerHTML = html;
 
-      // Připojit skript dané sekce JEN JEDNOU
       const ensureScript = (src) => {
         if (!document.querySelector(`script[src="${src}"]`)) {
           const s = document.createElement("script");
@@ -38,11 +37,9 @@ sections.forEach(section => {
       if (section === "header")      ensureScript("js/header.js");
       if (section === "domu")        ensureScript("js/domu.js");
       if (section === "o-nas")       ensureScript("js/o-nas.js");
-      if (section === "nase-sluzby") ensureScript("js/nase-sluzby.js"); // ← přidáno
-      // případně:
-      // if (section === "reference")   ensureScript("js/reference.js");
-      // if (section === "kontakty")    ensureScript("js/kontakty.js");
-      // if (section === "footer")      ensureScript("js/footer.js");
+      if (section === "nase-sluzby") ensureScript("js/nase-sluzby.js"); 
+      if (section === "reference") ensureScript("js/reference.js"); 
+    
     })
     .catch(err => {
       console.error(`Chyba při načítání sekce '${section}':`, err.message);
