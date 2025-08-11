@@ -1,7 +1,7 @@
 .site-header {
   background-color: #444;
   color: #d0d0d0;
-  padding: 1rem 0; 
+  padding: 1rem 2rem;
   font-family: 'Montserrat', sans-serif;
   position: fixed;
   top: 0; left: 0;
@@ -15,14 +15,14 @@
   align-items: center;
   flex-wrap: nowrap;
   max-width: 1200px;
-  padding: 0 6px; 
+  padding: 0 20px;
   margin: 0 auto;
   box-sizing: border-box;
   width: 100%;
 }
 
 .logo img { height: 50px; cursor: pointer; }
-.logo { margin-left: 0; } 
+.logo { margin-left: -85px; }
 
 .main-nav ul {
   display: flex;
@@ -45,10 +45,12 @@
 
 .dropdown { position: relative; z-index: 3; }
 
+/* ===== DESKTOP DROPDOWN ===== */
 .dropdown .submenu {
   display: none;
   flex-direction: column;
-  position: absolute; top: 100%; left: 0;
+  position: absolute; 
+  top: 100%; left: 0;
   margin-top: 32px;
   padding: 10px 0 4px;
   background-color: #f7f7f7;
@@ -61,11 +63,40 @@
   transition: opacity .3s ease, transform .3s ease;
   gap: 2px;
 }
-.dropdown.open .submenu { display: flex; opacity: 1; transform: translateY(0); }
-.dropdown .submenu li { padding: 12px 15px; line-height: 1.4; }
+.dropdown.open .submenu {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown .submenu li {
+  padding: 12px 15px;
+  line-height: 1.4;
+  text-align: left; /* vlevo */
+}
 .dropdown .submenu li:last-child { margin-bottom: 0; }
-.dropdown .submenu li a { color: #444; font-size: 14px; }
-.dropdown .submenu li a:hover { color: #02a9be; }
+
+.dropdown .submenu li a {
+  color: #444;
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  text-align: left;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* výraznější full-row vlna (desktop) */
+.dropdown .submenu li a:hover,
+.dropdown .submenu li a:focus-visible {
+  color: #111;
+  background: linear-gradient(
+    90deg,
+    rgba(2,169,190,0.22),
+    rgba(2,169,190,0.12) 60%,
+    rgba(2,169,190,0.00)
+  );
+  outline: none;
+}
 
 .dropdown.open .submenu::before {
   content: "";
@@ -75,11 +106,8 @@
   border-bottom-color: #fff;
 }
 
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
+/* ===== PRAVÁ STRANA ===== */
+.controls { display: flex; align-items: left; gap: 15px; }
 
 .search-wrapper {
   position: relative;
@@ -97,7 +125,7 @@
   background: #fff;
   color: #000;
   font-size: 14px;
-  max-width: 140px;
+  max-width: 120px;
 }
 .search-wrapper input::placeholder { font-size: 12px; color: #999; }
 .search-wrapper input:focus {
@@ -119,12 +147,13 @@
   margin-right: 0;
 }
 
+/* ===== MOBILNÍ MENU ===== */
 .mobile-nav {
-  display: none;
+  display: none;              
   flex-direction: column;
-  position: absolute;
-  top: 100%;
-  right: 24px; 
+  position: absolute;            
+  top: 100%;                    
+  right: 10px;
   padding: 10px 14px;
   background-color: #f7f7f7;
   border-radius: 8px;
@@ -147,36 +176,86 @@
   list-style: none;
   align-items: flex-start;
 }
+
+/* Hlavní položky v mobilním menu */
 .mobile-nav a {
   text-decoration: none;
   text-transform: uppercase;
-  color: #444;
+  color: #444;                
   font-weight: 500;
   font-size: 15px;
-  transition: color .3s ease;
+  display: block;
+  width: 100%;
+  padding: 10px 8px;
+  border-radius: 6px;
+  text-align: left;
+  transition: background 0.2s ease, color 0.2s ease;
 }
-.mobile-nav a:hover { color: #02a9be; }
+
+/* vlna na hover/tap/focus (mobil i desktop) */
+.mobile-nav a:hover,
+.mobile-nav a:focus-visible,
+.mobile-nav a:active,
+.mobile-nav a.is-hover {
+  color: #111;
+  background: linear-gradient(
+    90deg,
+    rgba(2,169,190,0.22),
+    rgba(2,169,190,0.12) 60%,
+    rgba(2,169,190,0.00)
+  );
+  outline: none;
+}
 
 .mobile-dropdown { position: relative; width: 100%; }
+
 .mobile-dropdown .submenu {
   display: none;
   flex-direction: column;
-  background-color: transparent;
+  background-color: transparent; 
   padding: 6px 8px;
   gap: 12px;
-  border-radius: 0;
+  border-radius: 0; 
   margin-top: 5px;
-  margin-left: 24px;
+  margin-left: 24px;           /* původní odsazení – zachováno */
   width: fit-content; max-width: 200px;
   box-sizing: border-box;
-  box-shadow: none;
+  box-shadow: none; 
   opacity: 0;
   transform: translateX(-10px);
   transition: opacity .3s ease, transform .3s ease;
 }
-.mobile-dropdown.open .submenu { display: flex; opacity: 1; transform: translateX(0); }
-.mobile-dropdown .submenu a { color: #444; font-size: 13px; }
-.mobile-dropdown .submenu a:hover { color: #02a9be; }
+.mobile-dropdown.open .submenu {
+  display: flex;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-dropdown .submenu a {
+  color: #444;
+  font-size: 13px;
+  display: block;
+  width: 100%;
+  padding: 8px 8px;
+  border-radius: 6px;
+  text-align: left;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* vlna pro submenu v mobilu */
+.mobile-dropdown .submenu a:hover,
+.mobile-dropdown .submenu a:focus-visible,
+.mobile-dropdown .submenu a:active,
+.mobile-dropdown .submenu a.is-hover {
+  color: #111;
+  background: linear-gradient(
+    90deg,
+    rgba(2,169,190,0.22),
+    rgba(2,169,190,0.12) 60%,
+    rgba(2,169,190,0.00)
+  );
+  outline: none;
+}
 
 .desktop-only { display: flex; }
 .mobile-only  { display: none; }
@@ -184,47 +263,82 @@
 
 @media (max-width: 1024px) {
   .main-nav a, .mobile-nav a { font-size: 14px; }
-  .container { width: 100%; }
+  .search-wrapper input { max-width: 140px; }
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
 }
 
 @media (max-width: 768px) {
-  .container {
-    display: grid;
-    grid-template-columns: auto 1fr auto; 
-    align-items: center;
-    gap: 12px;
-    padding-left: 24px;  
-    padding-right: 36px; 
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    position: fixed;
   }
 
   .desktop-only { display: none; }
-  .mobile-only  { display: flex; }
+  .mobile-only  { display: flex; align-items: left; justify-content: flex-start; width: 65%; }
 
-  .logo { margin-left: 0; justify-self: start; }
-  .logo img { height: 44px; }
+  .nav-list { flex-direction: column; }
 
-  .controls { justify-self: end; gap: 10px; }
+  .container {
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
 
-  .search-wrapper { margin-right: 0; }
+  .controls {
+    display: flex;
+    margin-left: auto;
+    padding-right: 60px;   
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .search-wrapper { margin-left: 5px; }
   .search-wrapper input { max-width: 120px; }
 
-  .mobile-nav { right: 36px; }
+  .menu-toggle { margin-left: 5px; }
+
+  .logo { margin-left: -30px; }
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding-left: 18px;  
-    padding-right: 28px; 
+  .logo img { height: 40px; padding-left: 10px; }
+  .logo { margin-left: -30px; }
+
+  .search-wrapper input { width: 100px; }
+
+  .controls {
+    gap: 8px;
+    margin-left: auto;
+    justify-content: flex-end;
   }
 
-  .logo img { height: 40px; }
-
-  .search-wrapper input { width: 96px; max-width: 96px; }
-
-  .mobile-nav { right: 28px; }
-  
   .main-nav a, .mobile-nav a { font-size: 13px; }
 }
+
+/* ===== jistota zarovnání vlevo na desktopu ===== */
+.dropdown .submenu { align-items: stretch; text-align: left; }
+.dropdown .submenu li { text-align: left; }
+.dropdown .submenu a { display: block; width: 100%; text-align: left; }
+
+/* ===== lepší odezva na dotykových zařízeních ===== */
+@media (hover: none) {
+  .mobile-nav a,
+  .mobile-dropdown .submenu a {
+    -webkit-tap-highlight-color: rgba(2,169,190,0.22);
+    touch-action: manipulation;
+  }
+}
+
+
+
+
 
 
 

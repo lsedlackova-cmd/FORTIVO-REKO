@@ -9,6 +9,7 @@ const logoLink     = document.querySelector('.logo');
 
 let searchNoteTimer = null;
 
+/* ============ jemná bublina u vyhledávání ============ */
 function showSearchNote(message) {
   if (!searchForm) return;
 
@@ -55,11 +56,16 @@ function hideSearchNote() {
   setTimeout(() => { note.remove(); }, 250);
 }
 
+/* ============ mobilní menu / dropdown ============ */
 const openMobileMenu  = () => {
   if (!mobileMenu) return;
   mobileMenu.classList.add('show');
   mobileMenu.classList.remove('hidden');
   menuToggle?.setAttribute('aria-expanded','true');
+};
+
+const clearMobileHover = () => {
+  mobileMenu?.querySelectorAll('a.is-hover')?.forEach(a => a.classList.remove('is-hover'));
 };
 
 const closeMobileMenu = () => {
@@ -68,6 +74,7 @@ const closeMobileMenu = () => {
   mobileMenu.classList.add('hidden');
   menuToggle?.setAttribute('aria-expanded','false');
   mobileMenu.querySelectorAll('.mobile-dropdown.open').forEach(dd => dd.classList.remove('open'));
+  clearMobileHover();
 };
 
 const toggleMobile    = () =>
@@ -100,7 +107,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') { closeDesktopDD(); closeMobileMenu(); hideSearchNote(); }
 });
 
-
+/* ============ vyhledávání ============ */
 searchIcon?.addEventListener('click', (e) => {
   e.stopPropagation();
   if (!searchForm) return;
@@ -134,12 +141,14 @@ searchForm?.addEventListener('submit', (e) => {
   }
 });
 
+/* ============ mobilní dropdowny ============ */
 mobileMenu?.addEventListener('click', (e) => {
   const toggle = e.target.closest('.mobile-dropdown-toggle');
   if (!toggle) return;
   e.preventDefault();
   const current = toggle.closest('.mobile-dropdown');
   if (!current) return;
+  // jen jeden otevřený
   mobileMenu.querySelectorAll('.mobile-dropdown.open').forEach(dd => {
     if (dd !== current) dd.classList.remove('open');
   });
@@ -165,6 +174,7 @@ document.addEventListener('click', (e) => {
   }
 }, { capture: true });
 
+/* ============ desktop submenu kliky ============ */
 document.querySelector('.main-nav')?.addEventListener('click', (e) => {
   const a = e.target.closest('.dropdown .submenu a');
   if (!a) return;
@@ -178,6 +188,7 @@ document.querySelector('.main-nav')?.addEventListener('click', (e) => {
   closeDesktopDD();
 });
 
+/* ============ logo -> Domů ============ */
 logoLink?.addEventListener('click', (e) => {
   e.preventDefault();
   document.getElementById('domu')?.scrollIntoView({ behavior: 'smooth' });
@@ -186,6 +197,53 @@ logoLink?.addEventListener('click', (e) => {
 });
 
 window.addEventListener('hashchange', () => { closeMobileMenu(); hideSearchNote(); });
+
+/* =========================================================
+   DOTYKOVÝ „HOVER“ V MOBILNÍM MENU (full-row podbarvení)
+   — simuluje hover během přejezdu prstem přes položky
+   — přidává/odstraňuje třídu .is-hover (CSS už máš)
+   ========================================================= */
+(function setupTouchHover(){
+  const root = document.getElementById('mobileMenu');
+  if (!root) return;
+
+  let last = null;
+
+  function clearHover() {
+    if (last) { last.classList.remove('is-hover'); last = null; }
+  }
+  function setHoverFromPoint(x, y) {
+    const el = document.elementFromPoint(x, y)?.closest('#mobileMenu a');
+    if (el && el !== last) {
+      if (last) last.classList.remove('is-hover');
+      el.classList.add('is-hover');
+      last = el;
+    } else if (!el) {
+      clearHover();
+    }
+  }
+
+  const onStart = (e) => {
+    const t = e.touches?.[0];
+    if (!t) return;
+    setHoverFromPoint(t.clientX, t.clientY);
+  };
+  const onMove = (e) => {
+    const t = e.touches?.[0];
+    if (!t) return;
+    setHoverFromPoint(t.clientX, t.clientY);
+  };
+  const onEnd = () => clearHover();
+
+  root.addEventListener('touchstart', onStart, { passive: true });
+  root.addEventListener('touchmove',  onMove,  { passive: true });
+  root.addEventListener('touchend',   onEnd);
+  root.addEventListener('touchcancel',onEnd);
+
+  // bezpečnost: při scrollu/resize taky zruš zvýraznění
+  window.addEventListener('scroll', clearHover, { passive: true });
+  window.addEventListener('resize', clearHover);
+})();
 
 
 
