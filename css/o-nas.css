@@ -64,6 +64,7 @@
 
 .stat {
   background: #fff;
+  border: 1px solid rgba(2, 169, 190, 0.6); /* jemný modrý rámeček */
   border-radius: 12px;
   padding: 18px 16px;
   text-align: center;
@@ -173,5 +174,6 @@
   .stat-num { font-size: 24px; }
   .stat-label { font-size: 12px; }
 }
+
 
 
