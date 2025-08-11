@@ -1,7 +1,7 @@
 .site-header {
   background-color: #444;
   color: #d0d0d0;
-  padding: 1rem 0; /* jen vertikální, horizontál řeší .container */
+  padding: 1rem 0; 
   font-family: 'Montserrat', sans-serif;
   position: fixed;
   top: 0; left: 0;
@@ -9,21 +9,20 @@
   z-index: 1000;
 }
 
-/* DESKTOP: ještě blíž k okrajům, symetricky */
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
   max-width: 1200px;
-  padding: 0 6px; /* bylo 10px -> teď 6px */
+  padding: 0 6px; 
   margin: 0 auto;
   box-sizing: border-box;
   width: 100%;
 }
 
 .logo img { height: 50px; cursor: pointer; }
-.logo { margin-left: 0; } /* bez záporných marginů */
+.logo { margin-left: 0; } 
 
 .main-nav ul {
   display: flex;
@@ -76,7 +75,6 @@
   border-bottom-color: #fff;
 }
 
-/* pravý blok (vyhledávání + hamburger) */
 .controls {
   display: flex;
   align-items: center;
@@ -121,13 +119,12 @@
   margin-right: 0;
 }
 
-/* mobilní menu panel */
 .mobile-nav {
   display: none;
   flex-direction: column;
   position: absolute;
   top: 100%;
-  right: 24px; /* přepíše se v media queries níže */
+  right: 24px; 
   padding: 10px 14px;
   background-color: #f7f7f7;
   border-radius: 8px;
@@ -185,27 +182,19 @@
 .mobile-only  { display: none; }
 .hidden { display: none !important; }
 
-/* =========================
-   TABLET
-   ========================= */
 @media (max-width: 1024px) {
   .main-nav a, .mobile-nav a { font-size: 14px; }
   .container { width: 100%; }
 }
 
-/* =========================
-   MOBIL (layout „k centru“)
-   logo | volno | ovládání
-   POSUN DOLEVA (asymetrické okraje)
-   ========================= */
 @media (max-width: 768px) {
   .container {
     display: grid;
-    grid-template-columns: auto 1fr auto; /* logo | mezera | controls */
+    grid-template-columns: auto 1fr auto; 
     align-items: center;
     gap: 12px;
-    padding-left: 24px;  /* logo blíž k levému okraji (menší mezera) */
-    padding-right: 36px; /* lupa+dropdown víc od pravého okraje -> posun doleva */
+    padding-left: 24px;  
+    padding-right: 36px; 
   }
 
   .desktop-only { display: none; }
@@ -219,14 +208,13 @@
   .search-wrapper { margin-right: 0; }
   .search-wrapper input { max-width: 120px; }
 
-  .mobile-nav { right: 36px; } /* zarovnáno s vnitřním pravým okrajem */
+  .mobile-nav { right: 36px; }
 }
 
-/* Úzké mobily – obdobný posun doleva */
 @media (max-width: 480px) {
   .container {
-    padding-left: 18px;  /* ještě blíž k levému okraji */
-    padding-right: 28px; /* a větší mezera vpravo -> controls víc doleva */
+    padding-left: 18px;  
+    padding-right: 28px; 
   }
 
   .logo img { height: 40px; }
