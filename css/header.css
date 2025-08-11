@@ -45,7 +45,6 @@
 
 .dropdown { position: relative; z-index: 3; }
 
-/* ===== DESKTOP DROPDOWN ===== */
 .dropdown .submenu {
   display: none;
   flex-direction: column;
@@ -72,7 +71,7 @@
 .dropdown .submenu li {
   padding: 12px 15px;
   line-height: 1.4;
-  text-align: left; /* vlevo */
+  text-align: left; 
 }
 .dropdown .submenu li:last-child { margin-bottom: 0; }
 
@@ -85,7 +84,6 @@
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* výraznější full-row vlna (desktop) */
 .dropdown .submenu li a:hover,
 .dropdown .submenu li a:focus-visible {
   color: #111;
@@ -106,7 +104,6 @@
   border-bottom-color: #fff;
 }
 
-/* ===== PRAVÁ STRANA ===== */
 .controls { display: flex; align-items: left; gap: 15px; }
 
 .search-wrapper {
@@ -147,7 +144,6 @@
   margin-right: 0;
 }
 
-/* ===== MOBILNÍ MENU ===== */
 .mobile-nav {
   display: none;              
   flex-direction: column;
@@ -177,7 +173,6 @@
   align-items: flex-start;
 }
 
-/* Hlavní položky v mobilním menu */
 .mobile-nav a {
   text-decoration: none;
   text-transform: uppercase;
@@ -192,7 +187,6 @@
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* vlna na hover/tap/focus (mobil i desktop) */
 .mobile-nav a:hover,
 .mobile-nav a:focus-visible,
 .mobile-nav a:active,
@@ -217,7 +211,7 @@
   gap: 12px;
   border-radius: 0; 
   margin-top: 5px;
-  margin-left: 24px;           /* původní odsazení – zachováno */
+  margin-left: 24px;           
   width: fit-content; max-width: 200px;
   box-sizing: border-box;
   box-shadow: none; 
@@ -242,7 +236,6 @@
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* vlna pro submenu v mobilu */
 .mobile-dropdown .submenu a:hover,
 .mobile-dropdown .submenu a:focus-visible,
 mobile-dropdown .submenu a:active,
@@ -315,12 +308,10 @@ mobile-dropdown .submenu a:active,
   .main-nav a, .mobile-nav a { font-size: 13px; }
 }
 
-/* ===== jistota zarovnání vlevo na desktopu ===== */
 .dropdown .submenu { align-items: stretch; text-align: left; }
 .dropdown .submenu li { text-align: left; }
 .dropdown .submenu a { display: block; width: 100%; text-align: left; }
 
-/* ===== SILNĚJŠÍ override pro mobilní "is-hover" ===== */
 #mobileMenu a.is-hover,
 #mobileMenu .submenu a.is-hover {
   color: #111 !important;
@@ -332,7 +323,6 @@ mobile-dropdown .submenu a:active,
   ) !important;
 }
 
-/* ===== lepší odezva na dotykových zařízeních ===== */
 @media (hover: none) {
   .mobile-nav a,
   .mobile-dropdown .submenu a {

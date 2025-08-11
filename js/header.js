@@ -9,7 +9,6 @@ const logoLink     = document.querySelector('.logo');
 
 let searchNoteTimer = null;
 
-/* ============ jemná bublina u vyhledávání ============ */
 function showSearchNote(message) {
   if (!searchForm) return;
 
@@ -56,7 +55,6 @@ function hideSearchNote() {
   setTimeout(() => { note.remove(); }, 250);
 }
 
-/* ============ mobilní menu / dropdown ============ */
 const openMobileMenu  = () => {
   if (!mobileMenu) return;
   mobileMenu.classList.add('show');
@@ -107,7 +105,6 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') { closeDesktopDD(); closeMobileMenu(); hideSearchNote(); }
 });
 
-/* ============ vyhledávání ============ */
 searchIcon?.addEventListener('click', (e) => {
   e.stopPropagation();
   if (!searchForm) return;
@@ -141,14 +138,12 @@ searchForm?.addEventListener('submit', (e) => {
   }
 });
 
-/* ============ mobilní dropdowny ============ */
 mobileMenu?.addEventListener('click', (e) => {
   const toggle = e.target.closest('.mobile-dropdown-toggle');
   if (!toggle) return;
   e.preventDefault();
   const current = toggle.closest('.mobile-dropdown');
   if (!current) return;
-  // jen jeden otevřený
   mobileMenu.querySelectorAll('.mobile-dropdown.open').forEach(dd => {
     if (dd !== current) dd.classList.remove('open');
   });
@@ -174,7 +169,6 @@ document.addEventListener('click', (e) => {
   }
 }, { capture: true });
 
-/* ============ desktop submenu kliky ============ */
 document.querySelector('.main-nav')?.addEventListener('click', (e) => {
   const a = e.target.closest('.dropdown .submenu a');
   if (!a) return;
@@ -188,7 +182,6 @@ document.querySelector('.main-nav')?.addEventListener('click', (e) => {
   closeDesktopDD();
 });
 
-/* ============ logo -> Domů ============ */
 logoLink?.addEventListener('click', (e) => {
   e.preventDefault();
   document.getElementById('domu')?.scrollIntoView({ behavior: 'smooth' });
@@ -198,11 +191,6 @@ logoLink?.addEventListener('click', (e) => {
 
 window.addEventListener('hashchange', () => { closeMobileMenu(); hideSearchNote(); });
 
-/* =========================================================
-   DOTYKOVÝ/MYŠÍ „HOVER“ V MOBILNÍM MENU (full-row podbarvení)
-   — funguje na prst/pero/myš bez kliku
-   — používá pointerover/mouseover + touchmove na dokumentu
-   ========================================================= */
 (function setupPointerHover(){
   const root = document.getElementById('mobileMenu');
   if (!root) return;
@@ -224,7 +212,6 @@ window.addEventListener('hashchange', () => { closeMobileMenu(); hideSearchNote(
     setHoverEl(el && root.contains(el) ? el : null);
   }
 
-  // pointerover/mouseover – reaguje i bez kliknutí
   root.addEventListener('pointerover', (e)=>{
     const a = e.target.closest(HOVER_SEL);
     if (a) setHoverEl(a);
@@ -232,14 +219,13 @@ window.addEventListener('hashchange', () => { closeMobileMenu(); hideSearchNote(
   root.addEventListener('pointerout', (e)=>{
     if (!root.contains(e.relatedTarget)) clearHover();
   });
-  // fallback
+
   root.addEventListener('mouseover', (e)=>{
     const a = e.target.closest(HOVER_SEL);
     if (a) setHoverEl(a);
   });
   root.addEventListener('mouseleave', clearHover);
 
-  // touchmove po celé stránce – přejezd prstem
   const onTouchMove = (e)=>{
     if (!mobileMenu || !mobileMenu.classList.contains('show')) return;
     const t = e.touches && e.touches[0];
@@ -252,12 +238,10 @@ window.addEventListener('hashchange', () => { closeMobileMenu(); hideSearchNote(
   document.addEventListener('touchend', onTouchEnd, {passive:true});
   document.addEventListener('touchcancel', onTouchEnd, {passive:true});
 
-  // úklid při zavření menu / scrollu / resize
   const cleanup = ()=> clearHover();
   window.addEventListener('scroll', cleanup, {passive:true});
   window.addEventListener('resize', cleanup);
 
-  // když se změní class na rootu (zavření/otevření)
   const obs = new MutationObserver(()=> {
     if (!root.classList.contains('show')) clearHover();
   });
