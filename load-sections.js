@@ -40,6 +40,7 @@ sections.forEach(section => {
       if (section === "nase-sluzby") ensureScript("js/nase-sluzby.js"); 
       if (section === "reference")   ensureScript("js/reference.js"); 
       if (section === "kontakt")     ensureScript("js/kontakt.js"); 
+      if (section === "kontakt")     ensureScript("js/footer.js");
     
     })
     .catch(err => {
