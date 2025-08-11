@@ -245,7 +245,7 @@
 /* vlna pro submenu v mobilu */
 .mobile-dropdown .submenu a:hover,
 .mobile-dropdown .submenu a:focus-visible,
-.mobile-dropdown .submenu a:active,
+mobile-dropdown .submenu a:active,
 .mobile-dropdown .submenu a.is-hover {
   color: #111;
   background: linear-gradient(
@@ -310,15 +310,8 @@
 @media (max-width: 480px) {
   .logo img { height: 40px; padding-left: 10px; }
   .logo { margin-left: -30px; }
-
   .search-wrapper input { width: 100px; }
-
-  .controls {
-    gap: 8px;
-    margin-left: auto;
-    justify-content: flex-end;
-  }
-
+  .controls { gap: 8px; margin-left: auto; justify-content: flex-end; }
   .main-nav a, .mobile-nav a { font-size: 13px; }
 }
 
@@ -326,6 +319,18 @@
 .dropdown .submenu { align-items: stretch; text-align: left; }
 .dropdown .submenu li { text-align: left; }
 .dropdown .submenu a { display: block; width: 100%; text-align: left; }
+
+/* ===== SILNĚJŠÍ override pro mobilní "is-hover" ===== */
+#mobileMenu a.is-hover,
+#mobileMenu .submenu a.is-hover {
+  color: #111 !important;
+  background: linear-gradient(
+    90deg,
+    rgba(2,169,190,0.28),
+    rgba(2,169,190,0.16) 60%,
+    rgba(2,169,190,0.00)
+  ) !important;
+}
 
 /* ===== lepší odezva na dotykových zařízeních ===== */
 @media (hover: none) {
@@ -335,6 +340,7 @@
     touch-action: manipulation;
   }
 }
+
 
 
 

@@ -199,51 +199,72 @@ logoLink?.addEventListener('click', (e) => {
 window.addEventListener('hashchange', () => { closeMobileMenu(); hideSearchNote(); });
 
 /* =========================================================
-   DOTYKOVÝ „HOVER“ V MOBILNÍM MENU (full-row podbarvení)
-   — simuluje hover během přejezdu prstem přes položky
-   — přidává/odstraňuje třídu .is-hover (CSS už máš)
+   DOTYKOVÝ/MYŠÍ „HOVER“ V MOBILNÍM MENU (full-row podbarvení)
+   — funguje na prst/pero/myš bez kliku
+   — používá pointerover/mouseover + touchmove na dokumentu
    ========================================================= */
-(function setupTouchHover(){
+(function setupPointerHover(){
   const root = document.getElementById('mobileMenu');
   if (!root) return;
 
   let last = null;
+  const HOVER_SEL = '#mobileMenu a';
 
-  function clearHover() {
-    if (last) { last.classList.remove('is-hover'); last = null; }
+  function setHoverEl(el){
+    if (el === last) return;
+    if (last) last.classList.remove('is-hover');
+    if (el) el.classList.add('is-hover');
+    last = el || null;
   }
-  function setHoverFromPoint(x, y) {
-    const el = document.elementFromPoint(x, y)?.closest('#mobileMenu a');
-    if (el && el !== last) {
-      if (last) last.classList.remove('is-hover');
-      el.classList.add('is-hover');
-      last = el;
-    } else if (!el) {
-      clearHover();
-    }
+  function clearHover(){ setHoverEl(null); }
+
+  // z bodu (x,y) najdi nejbližší <a> v #mobileMenu
+  function setHoverFromPoint(x, y){
+    const el = document.elementFromPoint(x, y)?.closest(HOVER_SEL);
+    setHoverEl(el && root.contains(el) ? el : null);
   }
 
-  const onStart = (e) => {
-    const t = e.touches?.[0];
+  // pointerover/mouseover – reaguje i bez kliknutí
+  root.addEventListener('pointerover', (e)=>{
+    const a = e.target.closest(HOVER_SEL);
+    if (a) setHoverEl(a);
+  });
+  root.addEventListener('pointerout', (e)=>{
+    if (!root.contains(e.relatedTarget)) clearHover();
+  });
+  // fallback
+  root.addEventListener('mouseover', (e)=>{
+    const a = e.target.closest(HOVER_SEL);
+    if (a) setHoverEl(a);
+  });
+  root.addEventListener('mouseleave', clearHover);
+
+  // touchmove po celé stránce – přejezd prstem
+  const onTouchMove = (e)=>{
+    if (!mobileMenu || !mobileMenu.classList.contains('show')) return;
+    const t = e.touches && e.touches[0];
     if (!t) return;
     setHoverFromPoint(t.clientX, t.clientY);
   };
-  const onMove = (e) => {
-    const t = e.touches?.[0];
-    if (!t) return;
-    setHoverFromPoint(t.clientX, t.clientY);
-  };
-  const onEnd = () => clearHover();
+  const onTouchEnd = ()=> clearHover();
 
-  root.addEventListener('touchstart', onStart, { passive: true });
-  root.addEventListener('touchmove',  onMove,  { passive: true });
-  root.addEventListener('touchend',   onEnd);
-  root.addEventListener('touchcancel',onEnd);
+  document.addEventListener('touchmove', onTouchMove, {passive:true});
+  document.addEventListener('touchend', onTouchEnd, {passive:true});
+  document.addEventListener('touchcancel', onTouchEnd, {passive:true});
 
-  // bezpečnost: při scrollu/resize taky zruš zvýraznění
-  window.addEventListener('scroll', clearHover, { passive: true });
-  window.addEventListener('resize', clearHover);
+  // úklid při zavření menu / scrollu / resize
+  const cleanup = ()=> clearHover();
+  window.addEventListener('scroll', cleanup, {passive:true});
+  window.addEventListener('resize', cleanup);
+
+  // když se změní class na rootu (zavření/otevření)
+  const obs = new MutationObserver(()=> {
+    if (!root.classList.contains('show')) clearHover();
+  });
+  obs.observe(root, { attributes:true, attributeFilter:['class'] });
 })();
+
+
 
 
 
