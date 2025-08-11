@@ -4,7 +4,7 @@ const sections = [
   "o-nas",
   "nase-sluzby",
   "reference",
-  "kontakty",
+  "kontakt",
   "footer"
 ];
 
@@ -38,7 +38,8 @@ sections.forEach(section => {
       if (section === "domu")        ensureScript("js/domu.js");
       if (section === "o-nas")       ensureScript("js/o-nas.js");
       if (section === "nase-sluzby") ensureScript("js/nase-sluzby.js"); 
-      if (section === "reference") ensureScript("js/reference.js"); 
+      if (section === "reference")   ensureScript("js/reference.js"); 
+      if (section === "kontakt")     ensureScript("js/kontakt.js"); 
     
     })
     .catch(err => {

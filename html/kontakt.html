@@ -1,0 +1,75 @@
+<section class="kontakt-section service">
+  <div class="section-inner">
+    <h2 class="service-title kontakt-title">Kontakt</h2>
+
+    <div class="kontakt-wrap">
+      <div class="kontakt-info">
+        <dl class="kontakt-list">
+          <div><dd class="firma">FORTIVO REKO s.r.o.</dd></div>
+          <div><dd>Kaprova 42/14, Staré Město, 110 00 Praha 1</dd></div>
+          <div><dd>IČ: 01234567</dd></div>
+          <div><dd>DIČ: CZ01234567</dd></div>
+          <div><dd><a href="tel:+420777087650">+420 777 087 650</a></dd></div>
+          <div><dd><a href="mailto:info@fortivoreko.cz">info@fortivoreko.cz</a></dd></div>
+        </dl>
+      </div>
+
+      <form class="kontakt-form card" id="kontaktForm" novalidate>
+        <h3 class="form-subtitle">Kontaktní formulář</h3>
+
+        <input type="text" name="company" autocomplete="off" tabindex="-1" class="hp-field" aria-hidden="true">
+        <input type="hidden" name="formStart" id="formStart">
+
+        <div class="field">
+          <label for="name">Jméno</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Vaše jméno">
+          <p class="error" id="err-name" role="alert"></p>
+        </div>
+
+        <div class="field required">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="vas@email.cz" required>
+          <p class="error" id="err-email" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label for="phone">Telefon</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+420 123 456 789">
+          <p class="error" id="err-phone" role="alert"></p>
+        </div>
+
+        <div class="field required">
+          <label for="place">Město</label>
+          <input id="place" name="place" type="text" placeholder="Např. Praha" required>
+          <p class="error" id="err-place" role="alert"></p>
+        </div>
+
+        <div class="field required">
+          <label for="message">Krátký popis poptávky</label>
+          <textarea id="message" name="message" rows="5" placeholder="Stručně popište, o jakou rekonstrukci máte zájem…" required></textarea>
+          <p class="error" id="err-message" role="alert"></p>
+        </div>
+
+        <p class="gdpr-note">
+          Odesláním formuláře beru na vědomí zpracování osobních údajů dle
+          <a class="gdpr-link" href="#" rel="noopener">zásad ochrany osobních údajů</a>.
+        </p>
+
+        <div class="actions">
+          <button type="submit" class="btn-primary" id="submitBtn">
+            <span class="btn-label">Odeslat poptávku</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+          <div class="form-status" aria-live="polite" id="formStatus"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
